@@ -18,9 +18,8 @@ Gentoo functions and the equivalent in this library.
 | take (Returns an array) |  |
 | limit | take |
 | loop |  |
-| everyN |  |
+| everyN | everyNth |
 | reduce |  |
 | range | range |
 | takeWhile | takeWhile |
 | chain | iterate, but all generators chainable by default |
-
