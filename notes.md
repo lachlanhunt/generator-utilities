@@ -5,7 +5,7 @@ Gentoo functions and the equivalent in this library.
 | Gentoo | Lib |
 |---|---|
 | accum |   |
-| compose | concat |
+| compose | concat, interlace |
 | dedupe  | dedupe |
 | filter  | filter (no thisValue) |
 | forEach | forEach (no thisValue) |
@@ -17,7 +17,7 @@ Gentoo functions and the equivalent in this library.
 | skip | drop |
 | take (Returns an array) |  |
 | limit | take |
-| loop |  |
+| loop (records the output of an iterator, then starts repeating it) | repeat (takes a finite generator function or iterable and repeatedly iterates over it) |
 | everyN | everyNth |
 | reduce |  |
 | range | range |
