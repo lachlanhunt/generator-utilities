@@ -24,6 +24,8 @@
     "arrayslice": "^0.1.0"
   },
   "devDependencies": {
-    "jasmine": "^2.6.0"
+    "jasmine": "^2.6.0",
+    "sinon": "^2.2.0",
+    "jasmine-sinon": "^0.4.0"
   }
 }
