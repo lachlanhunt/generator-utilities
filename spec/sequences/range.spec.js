@@ -1,6 +1,6 @@
-describe("Range sequence", () => {
-	const iter = require("../../index");
+const iter = require("../../index");
 
+describe("Range sequence", () => {
 	it("should generate an empty if no parameters are given", () => {
 		expect([...iter.range()]).toEqual([]);
 	});

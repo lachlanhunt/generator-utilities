@@ -1,6 +1,6 @@
-describe("Counting sequences", () => {
-	const iter = require("../../index");
+const iter = require("../../index");
 
+describe("Counting sequences", () => {
 	it("should count from 0", () => {
 		let counter = iter.counter();
 
