@@ -61,9 +61,6 @@ Temporary Items
 
 ## Plugin-specific files:
 
-# IntelliJ
-/out/
-
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
@@ -104,4 +101,3 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
-
