@@ -35,4 +35,21 @@ describe("Iterating objects", () => {
 		expect(iterable.next().done).toBe(true);
 		expect(counter.next().done).toBe(true);
 	});
+
+	it("should work with array-like objects", () => {
+		let obj = {
+			length: 5,
+			"0": 10,
+			"1": 20,
+			"2": 30,
+			"3": 40,
+			"4": 50
+		};
+
+		let iterable = iter.iterate(obj);
+
+		for (let i = 0; i < obj.length; i++) {
+			expect(iterable.next().value).toBe(obj[i]);
+		}
+	});
 });
