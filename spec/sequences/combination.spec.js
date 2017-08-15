@@ -1,10 +1,10 @@
-const iter = require("../../index");
+const { combination, range } = require("../../index");
 
 describe("Combination generator", () => {
 	it("should generate unique combinations", () => {
 		let source = [0, 1, 2, 3, 4, 5];
 		let size = 3;
-		let combinations = Array.from(iter.combination(source, size), arr =>
+		let combinations = Array.from(combination(source, size), arr =>
 			arr.join("")
 		);
 		let set = new Set(combinations);
@@ -16,7 +16,7 @@ describe("Combination generator", () => {
 	it("should generate combinations of 3 values", () => {
 		let source = [0, 1, 2, 3, 4, 5];
 		let size = 3;
-		let combinations = iter.combination(source, size);
+		let combinations = combination(source, size);
 
 		for (c of combinations) {
 			expect(c.length).toBe(size);
@@ -26,7 +26,7 @@ describe("Combination generator", () => {
 	it("should generate combinations of 4 values", () => {
 		let source = [0, 1, 2, 3, 4, 5];
 		let size = 4;
-		let combinations = iter.combination(source, size);
+		let combinations = combination(source, size);
 
 		for (c of combinations) {
 			expect(c.length).toBe(size);
@@ -43,7 +43,7 @@ describe("Combination generator", () => {
 			"4": 50
 		};
 		let size = 3;
-		let combinations = iter.combination(source, size);
+		let combinations = combination(source, size);
 
 		for (c of combinations) {
 			expect(c.length).toBe(size);
@@ -51,9 +51,9 @@ describe("Combination generator", () => {
 	});
 
 	it("should work with Iterable objects", () => {
-		let source = iter.range(5);
+		let source = range(5);
 		let size = 3;
-		let combinations = iter.combination(source, size);
+		let combinations = combination(source, size);
 
 		for (c of combinations) {
 			expect(c.length).toBe(size);
@@ -61,9 +61,9 @@ describe("Combination generator", () => {
 	});
 
 	it("should duplicate any value in a combination", () => {
-		let source = iter.range(5);
+		let source = range(5);
 		let size = 3;
-		let combinations = iter.combination(source, size);
+		let combinations = combination(source, size);
 
 		for (c of combinations) {
 			// Verify all values are unique within each combination

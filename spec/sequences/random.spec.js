@@ -1,4 +1,4 @@
-const iter = require("../../index");
+const { random, range } = require("../../index");
 const sinon = require("sinon");
 require("jasmine-sinon");
 
@@ -21,46 +21,52 @@ describe("Random sequence", () => {
 	}
 
 	beforeEach(() => {
-		spyOn(Math, 'random').and.returnValues(...randomValues);
+		spyOn(Math, "random").and.returnValues(...randomValues);
 	});
 
 	it("should randomly generate 0 or 1 when called with no parameters", () => {
-		let gen = iter.random();
-		for (let i of iter.range(randomValues.length)) {
+		let gen = random();
+		for (let i of range(randomValues.length)) {
 			expect(gen.next().value).toBe(randomIntFrom(randomValues[i], 0, 1));
 		}
 	});
 
 	it("should generate random doubles between 0 and 1 when called with a single true parameter", () => {
-		let gen = iter.random(true);
-		for (let i of iter.range(randomValues.length)) {
+		let gen = random(true);
+		for (let i of range(randomValues.length)) {
 			expect(gen.next().value).toBe(randomValues[i]);
 		}
 	});
 
 	it("should generate random integers up to the given max value", () => {
 		const MAX = 10;
-		let gen = iter.random(MAX);
-		for (let i of iter.range(randomValues.length)) {
-			expect(gen.next().value).toBe(randomIntFrom(randomValues[i], 0, MAX));
+		let gen = random(MAX);
+		for (let i of range(randomValues.length)) {
+			expect(gen.next().value).toBe(
+				randomIntFrom(randomValues[i], 0, MAX)
+			);
 		}
 	});
 
 	it("should generate random integers between the given range", () => {
 		const MIN = 5;
 		const MAX = 15;
-		let gen = iter.random(MIN, MAX);
-		for (let i of iter.range(randomValues.length)) {
-			expect(gen.next().value).toBe(randomIntFrom(randomValues[i], MIN, MAX));
+		let gen = random(MIN, MAX);
+		for (let i of range(randomValues.length)) {
+			expect(gen.next().value).toBe(
+				randomIntFrom(randomValues[i], MIN, MAX)
+			);
 		}
 	});
 
 	it("should generate random integers between the given range even when min and max are reversed", () => {
 		const MIN = 5;
 		const MAX = 15;
-		let gen = iter.random(MAX, MIN);
-		for (let i of iter.range(randomValues.length)) {
-			expect(gen.next().value).toBe(randomIntFrom(randomValues[i], MIN, MAX));
+		let gen = random(MAX, MIN);
+		for (let i of range(randomValues.length)) {
+			expect(gen.next().value).toBe(
+				randomIntFrom(randomValues[i], MIN, MAX)
+			);
 		}
 	});
 });

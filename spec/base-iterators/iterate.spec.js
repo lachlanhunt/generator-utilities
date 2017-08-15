@@ -1,9 +1,9 @@
-const iter = require("../../index");
+const { iterate, counter } = require("../../index");
 
 describe("Iterating objects", () => {
 	it("should yield values from an array", () => {
 		let arr = [10, 20, 30, 40, 50];
-		let iterable = iter.iterate(arr);
+		let iterable = iterate(arr);
 
 		for (let i = 0; i <= arr.length; i++) {
 			expect(iterable.next().value).toBe(arr[i]);
@@ -18,7 +18,7 @@ describe("Iterating objects", () => {
 			}
 		};
 
-		let iterable = iter.iterate(obj);
+		let iterable = iterate(obj);
 
 		for (let i = 0; i <= arr.length; i++) {
 			expect(iterable.next().value).toBe(arr[i]);
@@ -26,14 +26,14 @@ describe("Iterating objects", () => {
 	});
 
 	it("should finish the wrapped iterator when it returns", () => {
-		let counter = iter.counter();
-		let iterable = iter.iterate(counter);
+		let c = counter();
+		let iterable = iterate(c);
 
 		for (value of iterable) {
 			if (value > 3) break;
 		}
 		expect(iterable.next().done).toBe(true);
-		expect(counter.next().done).toBe(true);
+		expect(c.next().done).toBe(true);
 	});
 
 	it("should work with array-like objects", () => {
@@ -46,7 +46,7 @@ describe("Iterating objects", () => {
 			"4": 50
 		};
 
-		let iterable = iter.iterate(obj);
+		let iterable = iterate(obj);
 
 		for (let i = 0; i < obj.length; i++) {
 			expect(iterable.next().value).toBe(obj[i]);

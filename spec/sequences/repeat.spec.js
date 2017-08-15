@@ -1,4 +1,4 @@
-const iter = require("../../index");
+const { repeat } = require("../../index");
 const sinon = require("sinon");
 require("jasmine-sinon");
 
@@ -15,20 +15,20 @@ describe("Repeat sequence", () => {
 	});
 
 	it("should repeatedly yield all values of an array", () => {
-		expect([...iter.repeat([1,2,3]).take(9)]).toEqual([1,2,3,1,2,3,1,2,3]);
+		expect([...repeat([1, 2, 3]).take(7)]).toEqual([1, 2, 3, 1, 2, 3, 1]);
 	});
 
 	it("should invoke the supplied generator function on each repetition", () => {
-		let result = [...iter.repeat(generatorFn).take(7)];
+		let result = [...repeat(generatorFn).take(7)];
 
-		expect(result).toEqual([1,2,3,1,2,3,1]);
+		expect(result).toEqual([1, 2, 3, 1, 2, 3, 1]);
 		expect(generatorFn).toHaveBeenCalledThrice();
 	});
 
 	it("should invoke the supplied generator function with the given arguments on each repetition", () => {
-		let result = [...iter.repeat(generatorFn, 3, 2, 1).take(7)];
+		let result = [...repeat(generatorFn, 3, 2, 1).take(7)];
 
-		expect(result).toEqual([3,2,1,3,2,1,3]);
+		expect(result).toEqual([3, 2, 1, 3, 2, 1, 3]);
 		expect(generatorFn).toHaveBeenCalledThrice();
 		expect(generatorFn).toHaveBeenAlwaysCalledWith(3, 2, 1);
 	});

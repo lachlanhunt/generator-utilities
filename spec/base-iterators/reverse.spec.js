@@ -1,9 +1,9 @@
-const iter = require("../../index");
+const { reverse } = require("../../index");
 
 describe("Reverse iterating objects", () => {
 	it("should yield values from an array in reverse", () => {
 		let arr = [10, 20, 30, 40, 50];
-		let iterable = iter.reverse(arr);
+		let iterable = reverse(arr);
 
 		for (let i = arr.length - 1; i >= 0; i--) {
 			expect(iterable.next().value).toBe(arr[i]);
@@ -20,7 +20,7 @@ describe("Reverse iterating objects", () => {
 			"4": 50
 		};
 
-		let iterable = iter.reverse(obj);
+		let iterable = reverse(obj);
 
 		for (let i = obj.length - 1; i >= 0; i--) {
 			expect(iterable.next().value).toBe(obj[i]);
@@ -36,7 +36,7 @@ describe("Reverse iterating objects", () => {
 			"4": 50
 		};
 
-		let result = [...iter.reverse(obj)];
+		let result = [...reverse(obj)];
 		expect(result).toEqual([]);
 	});
 });
