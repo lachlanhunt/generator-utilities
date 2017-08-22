@@ -13,7 +13,7 @@ Gentoo functions and the equivalent in this library.
 | map | map |
 | nthValue | .drop(n - 1).take(1) |
 | partition |  |
-| pluck | (Use .map and lodash) |
+| pluck | pluck |
 | skip | drop |
 | take (Returns an array) | .chunk(n).take(1) |
 | limit | take |
