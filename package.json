@@ -2,7 +2,7 @@
     "name": "generator-utilities",
     "version": "0.1.0",
     "description": "A utility library for generating and processing sequences based on ES6 generators.",
-    "main": "index.js",
+    "main": "index",
     "scripts": {
         "test": "jasmine",
         "docs": "jsdoc -c jsdoc.conf.json"
@@ -11,17 +11,18 @@
         "type": "git",
         "url": "git+https://github.com/lachlanhunt/generator-utilities.git"
     },
-    "keywords": [
-        "generator",
-        "ES6"
-    ],
+    "keywords": ["generator", "ES6"],
     "author": "Lachlan Hunt <lachlan.hunt@lachy.id.au>",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/lachlanhunt/generator-utilities/issues"
     },
     "homepage": "https://github.com/lachlanhunt/generator-utilities#readme",
+    "@std/esm": {
+        "cjs": true
+    },
     "dependencies": {
+        "@std/esm": "^0.5.1",
         "arrayslice": "^0.1.0"
     },
     "devDependencies": {
