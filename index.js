@@ -1,2 +1,2 @@
 require("@std/esm");
-module.exports = require("./lib/iterate.mjs").default;
+module.exports = require("./index.mjs").default;

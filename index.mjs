@@ -1,1 +1,1 @@
-export default from "./lib/iterate.mjs";
+export { default } from "./lib/iterate.mjs";
