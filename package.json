@@ -18,9 +18,6 @@
         "url": "https://github.com/lachlanhunt/generator-utilities/issues"
     },
     "homepage": "https://github.com/lachlanhunt/generator-utilities#readme",
-    "@std/esm": {
-        "cjs": true
-    },
     "dependencies": {
         "@std/esm": "^0.5.1",
         "arrayslice": "^0.1.0"
