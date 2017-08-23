@@ -1,12 +1,9 @@
-const { collatz } = require("../../index");
+const { collatz } = require("../../");
 
 describe("Collatz sequence", () => {
-	it("should ", () => {
-		// TODO
-		let iterator = collatz(10);
-
-		for (let value of iterator) {
-			expect(value).toBe(value);
-		}
-	});
+    it("should yield values in the Collatz sequence", () => {
+        let iterator = collatz(10);
+        let result = [...iterator];
+        expect(result).toEqual([10, 5, 16, 8, 4, 2, 1]);
+    });
 });

@@ -1,42 +1,42 @@
 const { reverse } = require("../../index");
 
 describe("Reverse iterating objects", () => {
-	it("should yield values from an array in reverse", () => {
-		let arr = [10, 20, 30, 40, 50];
-		let iterable = reverse(arr);
+    it("should yield values from an array in reverse", () => {
+        let arr = [10, 20, 30, 40, 50];
+        let iterable = reverse(arr);
 
-		for (let i = arr.length - 1; i >= 0; i--) {
-			expect(iterable.next().value).toBe(arr[i]);
-		}
-	});
+        for (let i = arr.length - 1; i >= 0; i--) {
+            expect(iterable.next().value).toBe(arr[i]);
+        }
+    });
 
-	it("should work with array-like objects", () => {
-		let obj = {
-			length: 5,
-			"0": 10,
-			"1": 20,
-			"2": 30,
-			"3": 40,
-			"4": 50
-		};
+    it("should work with array-like objects", () => {
+        let obj = {
+            length: 5,
+            "0": 10,
+            "1": 20,
+            "2": 30,
+            "3": 40,
+            "4": 50
+        };
 
-		let iterable = reverse(obj);
+        let iterable = reverse(obj);
 
-		for (let i = obj.length - 1; i >= 0; i--) {
-			expect(iterable.next().value).toBe(obj[i]);
-		}
-	});
+        for (let i = obj.length - 1; i >= 0; i--) {
+            expect(iterable.next().value).toBe(obj[i]);
+        }
+    });
 
-	it("should not iterate any object without a length", () => {
-		let obj = {
-			"0": 10,
-			"1": 20,
-			"2": 30,
-			"3": 40,
-			"4": 50
-		};
+    it("should not iterate any object without a length", () => {
+        let obj = {
+            "0": 10,
+            "1": 20,
+            "2": 30,
+            "3": 40,
+            "4": 50
+        };
 
-		let result = [...reverse(obj)];
-		expect(result).toEqual([]);
-	});
+        let result = [...reverse(obj)];
+        expect(result).toEqual([]);
+    });
 });

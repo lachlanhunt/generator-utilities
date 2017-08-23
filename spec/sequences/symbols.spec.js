@@ -1,14 +1,10 @@
-const { symbols } = require("../../index");
+const { symbols } = require("../../");
 
 describe("Symbols sequence", () => {
-	it("should ", () => {
-		// TODO
-		let iterator = symbols();
-		let i = 0;
-
-		for (let value of iterator) {
-			expect(value).toBe(value);
-			if (++i > 100) break;
-		}
-	});
+    it("should ", () => {
+        let iterator = symbols();
+        for (let i = 0; i < 3; i++) {
+            expect(typeof iterator.next().value).toBe("symbol");
+        }
+    });
 });

@@ -1,12 +1,34 @@
-const { permutation } = require("../../index");
+const { permutation } = require("../../");
 
 describe("k-permutation sequence", () => {
-	it("should ", () => {
-		// TODO
-		let iterator = permutation([1, 2, 3, 4], 3);
-
-		for (let value of iterator) {
-			expect(value).toBe(value);
-		}
-	});
+    it("should ", () => {
+        let iterator = permutation([1, 2, 3, 4], 3);
+        let result = [...iterator];
+        expect(result).toEqual([
+            [1, 2, 3],
+            [1, 2, 4],
+            [1, 3, 2],
+            [1, 3, 4],
+            [1, 4, 2],
+            [1, 4, 3],
+            [2, 1, 3],
+            [2, 1, 4],
+            [2, 3, 1],
+            [2, 3, 4],
+            [2, 4, 1],
+            [2, 4, 3],
+            [3, 1, 2],
+            [3, 1, 4],
+            [3, 2, 1],
+            [3, 2, 4],
+            [3, 4, 1],
+            [3, 4, 2],
+            [4, 1, 2],
+            [4, 1, 3],
+            [4, 2, 1],
+            [4, 2, 3],
+            [4, 3, 1],
+            [4, 3, 2]
+        ]);
+    });
 });

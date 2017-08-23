@@ -11,7 +11,10 @@
         "type": "git",
         "url": "git+https://github.com/lachlanhunt/generator-utilities.git"
     },
-    "keywords": ["generator", "ES6"],
+    "keywords": [
+        "generator",
+        "ES6"
+    ],
     "author": "Lachlan Hunt <lachlan.hunt@lachy.id.au>",
     "license": "MIT",
     "bugs": {
@@ -23,6 +26,7 @@
         "arrayslice": "^0.1.0"
     },
     "devDependencies": {
+        "eslint": "^4.5.0",
         "jasmine": "^2.6.0",
         "jasmine-sinon": "^0.4.0",
         "jsdoc": "^3.5.4",

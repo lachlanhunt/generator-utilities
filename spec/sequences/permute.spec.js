@@ -1,12 +1,16 @@
-const { permute } = require("../../index");
+const { permute } = require("../../");
 
 describe("Permute sequence", () => {
-	it("should ", () => {
-		// TODO
-		let iterator = permute([1, 2, 3]);
-
-		for (let value of iterator) {
-			expect(value).toBe(value);
-		}
-	});
+    it("should ", () => {
+        let iterator = permute([1, 2, 3]);
+        let result = [...iterator];
+        expect(result).toEqual([
+            [1, 2, 3],
+            [1, 3, 2],
+            [2, 1, 3],
+            [2, 3, 1],
+            [3, 1, 2],
+            [3, 2, 1]
+        ]);
+    });
 });

@@ -1,12 +1,11 @@
-const { fibonacci } = require("../../index");
+const { fibonacci } = require("../../");
 
 describe("Fibonacci sequence", () => {
-	it("should ", () => {
-		// TODO
-		let iterator = fibonacci();
+    it("should ", () => {
+        let iterator = fibonacci();
 
-		for (let value of iterator) {
-			expect(value).toBe(value);
-		}
-	});
+        for (let value of iterator) {
+            expect(value).toBe(value);
+        }
+    });
 });
