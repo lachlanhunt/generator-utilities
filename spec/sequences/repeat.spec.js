@@ -1,4 +1,4 @@
-const { repeat } = require("../../");
+const { repeat, take } = require("../../");
 const sinon = require("sinon");
 require("jasmine-sinon");
 
@@ -15,18 +15,18 @@ describe("Repeat sequence", () => {
     });
 
     it("should repeatedly yield all values of an array", () => {
-        expect([...repeat([1, 2, 3]).take(7)]).toEqual([1, 2, 3, 1, 2, 3, 1]);
+        expect([...take(repeat([1, 2, 3]), 7)]).toEqual([1, 2, 3, 1, 2, 3, 1]);
     });
 
     it("should invoke the supplied generator function on each repetition", () => {
-        let result = [...repeat(generatorFn).take(7)];
+        let result = [...take(repeat(generatorFn), 7)];
 
         expect(result).toEqual([1, 2, 3, 1, 2, 3, 1]);
         expect(generatorFn).toHaveBeenCalledThrice();
     });
 
     it("should invoke the supplied generator function with the given arguments on each repetition", () => {
-        let result = [...repeat(generatorFn, 3, 2, 1).take(7)];
+        let result = [...take(repeat(generatorFn, 3, 2, 1), 7)];
 
         expect(result).toEqual([3, 2, 1, 3, 2, 1, 3]);
         expect(generatorFn).toHaveBeenCalledThrice();
