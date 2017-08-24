@@ -1,26 +1,35 @@
 {
-  "name": "generator-utilities",
-  "version": "0.1.0",
-  "description": "A utility library for generating and processing sequences based on ES6 generators.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lachlanhunt/generator-utilities.git"
-  },
-  "keywords": [
-    "generator",
-    "ES6"
-  ],
-  "author": "Lachlan Hunt <lachlan.hunt@lachy.id.au>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lachlanhunt/generator-utilities/issues"
-  },
-  "homepage": "https://github.com/lachlanhunt/generator-utilities#readme",
-  "dependencies": {
-    "arrayslice": "^0.1.0"
-  }
+    "name": "generator-utilities",
+    "version": "0.1.0",
+    "description": "A utility library for generating and processing sequences based on ES6 generators.",
+    "main": "index",
+    "scripts": {
+        "test": "jasmine",
+        "docs": "jsdoc -c jsdoc.conf.json"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lachlanhunt/generator-utilities.git"
+    },
+    "keywords": [
+        "generator",
+        "ES6"
+    ],
+    "author": "Lachlan Hunt <lachlan.hunt@lachy.id.au>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/lachlanhunt/generator-utilities/issues"
+    },
+    "homepage": "https://github.com/lachlanhunt/generator-utilities#readme",
+    "dependencies": {
+        "@std/esm": "^0.5.1",
+        "arrayslice": "^0.1.0"
+    },
+    "devDependencies": {
+        "eslint": "^4.5.0",
+        "jasmine": "^2.6.0",
+        "jasmine-sinon": "^0.4.0",
+        "jsdoc": "^3.5.4",
+        "sinon": "^2.2.0"
+    }
 }
