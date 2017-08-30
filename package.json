@@ -1,6 +1,6 @@
 {
     "name": "generator-utilities",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "A utility library for generating and processing sequences based on ES6 generators.",
     "main": "index",
     "scripts": {
