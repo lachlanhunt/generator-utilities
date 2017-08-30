@@ -3,6 +3,32 @@ Generator Utilities
 
 A utility library for generating and processing sequences based on ES6 generators.
 
+## Usage
+
+Install the package in your project
+
+    npm install --save generator-utilities
+
+Use `require` or `import` to use the generator functions you need.
+
+    import { iterate, range } from "generator-utilities";
+
+Or
+
+    const { iterate, range } = require("generator-utilities");
+
+Alternatively, if you use the default import, you can take advantage of the chainable iterator functionality.
+
+    import { default as chain } from "generator-utilities";
+
+Or
+
+    const chain = require("generator-utilities").default;
+
+See below for explaination of how chaining works.
+
+## Purpose
+
 This contains many generator functions for a range of utilities that are primarily divided into two categories: sequence generators and chainable generators. The sequence generators will take their input, if any, and use it to produce a sequence of values. The chainable generators take as input an iterable object and other parameters and yield (possibly modified) values until either some condition has been met, or the source iterator stops yielding values.
 
 For example, the `range` generator yields a sequence of values between a start and end value.
