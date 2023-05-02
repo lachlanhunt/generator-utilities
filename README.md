@@ -7,25 +7,35 @@ A utility library for generating and processing sequences based on ES6 generator
 
 Install the package in your project
 
-    npm install --save generator-utilities
+```sh
+npm install --save generator-utilities
+```
 
 Use `require` or `import` to use the generator functions you need.
 
-    import { iterate, range } from "generator-utilities";
+```js
+import { iterate, range } from "generator-utilities";
+```
 
 Or
 
-    const { iterate, range } = require("generator-utilities");
+```js
+const { iterate, range } = require("generator-utilities");
+```
 
 Alternatively, if you use the default import, you can take advantage of the chainable iterator functionality.
 
-    import { default as chain } from "generator-utilities";
+```js
+import { default as chain } from "generator-utilities";
+```
 
 Or
 
-    const chain = require("generator-utilities").default;
+```js
+const chain = require("generator-utilities").default;
+```
 
-See below for explaination of how chaining works.
+See below for explanation of how chaining works.
 
 ## Purpose
 
@@ -33,20 +43,26 @@ This contains many generator functions for a range of utilities that are primari
 
 For example, the `range` generator yields a sequence of values between a start and end value.
 
-    for (value of range(-10, 11)) {
-        console.log(value);
-    }
+```js
+for (value of range(-10, 11)) {
+    console.log(value);
+}
+```
 
 This will log the integers from -10 up to but not including 11. i.e. -10, -9, -8, ..., 8, 9, 10.
 
 The `take` generator is a chainable generator that takes as input an iterable object, such as another generator or an Array, and yields the specified number of values. The counter sequence generator in this example will yield an infinite series of values from 0.
 
-    [...take(counter(), 10)]; // --> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```js
+[...take(counter(), 10)]; // --> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
 
 The reason these are called chainable generators is because they can be used together via the `chain` export.
 
-    let it = chain.range(1, 10).map(n => n**2);
-    [...it]; // --> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+```
+let it = chain.range(1, 10).map(n => n**2);
+[...it]; // --> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+```
 
 The `chain` export provides access to all sequence and chainable generators, and automatically exposes all chainable generators on each iterator returned in the chain.
 
@@ -64,19 +80,23 @@ The base iterators simply yield values from a given source object without modify
 
 e.g. Withinout safeIterate:
 
-    let a = counter();
-    for (let value of a) {
-        if (value > 10) break;
-    }
-    a.next(); // --> { done: true }
+```js
+let a = counter();
+for (let value of a) {
+    if (value > 10) break;
+}
+a.next(); // --> { done: true }
+```
 
 With safeIterate:
 
-    let b = counter();
-    for (let value of safeIterate(b)) {
-        if (value >= 10) break;
-    }
-    b.next(); // --> { value: 11, done: false }
+```js
+let b = counter();
+for (let value of safeIterate(b)) {
+    if (value >= 10) break;
+}
+b.next(); // --> { value: 11, done: false }
+```
 
 > Note: Take care with safeIterate. Use it only where you are sure that you don't want a call to `return()` to be propagated to the wrapped iterator, which ordinarily allows for cleanup procedures to occur when you are finished with it, such as closing open files.
 
