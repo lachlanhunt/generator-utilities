@@ -18,24 +18,23 @@ export const identity = <const T>(x: T): T => x;
  * isEqual("a", "a"); // true
  * isEqual(1, 1); // true
  */
-
 export const isEqual = <T>(a: T, b: T) => a === b;
 
 /**
  * Returns a random integer between min and max
  * @param min The minimum value
  * @param max The maximum value
- * @returns A random integer between min and max
+ * @returns A random integer from min to max, where min <= value <= max
  * @example
  * randomInt(1, 10); // 5
  */
 export const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 /**
- * Returns a random float between min and max
+ * Returns a random floating point value between min and max
  * @param min The minimum value
  * @param max The maximum value
- * @returns A random float between min and max
+ * @returns A random floating point value between min and max, where min <= value < max
  * @example
  * randomFloat(1, 10); // 5.123
  */
