@@ -1,5 +1,5 @@
 {
-    "include": ["lib/**/*.ts"],
+    "include": ["lib/**/*.ts", "lib/sequences/index.mjs"],
     "exclude": ["**/dist/**/*"],
     "compilerOptions": {
         /* Visit https://aka.ms/tsconfig to read more about this file */
