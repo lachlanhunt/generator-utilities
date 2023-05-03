@@ -6367,7 +6367,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/jest-cli-virtual-29954828a7/0/cache/jest-cli-npm-29.5.0-3746aee7e9-39897bbbc0.zip/node_modules/jest-cli/",\
           "packageDependencies": [\
             ["jest-cli", "virtual:b9f8de5041034910ac48440341a3b10955a6f563b7b1449166458b513c5878bb2054089062e22fa86c03fdd92d6fb9965195b5fe3ea385b99338feda94c9a446#npm:29.5.0"],\
+            ["@jest/console", "npm:29.5.0"],\
             ["@jest/core", "virtual:b9f8de5041034910ac48440341a3b10955a6f563b7b1449166458b513c5878bb2054089062e22fa86c03fdd92d6fb9965195b5fe3ea385b99338feda94c9a446#npm:29.5.0"],\
+            ["@jest/reporters", "virtual:ba8f15e0674a8e48c9edaefd63eef43096697648913baaf0fd6b223d33679c64f3cc241a8e8cdabe3c525fbde97460a170d0ec893875871500391286518142de#npm:29.5.0"],\
             ["@jest/test-result", "npm:29.5.0"],\
             ["@jest/types", "npm:29.5.0"],\
             ["@types/node-notifier", null],\
@@ -6418,6 +6420,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-regex-util", "npm:29.4.3"],\
             ["jest-resolve", "npm:29.5.0"],\
             ["jest-runner", "npm:29.5.0"],\
+            ["jest-runtime", "npm:29.5.0"],\
             ["jest-util", "npm:29.5.0"],\
             ["jest-validate", "npm:29.5.0"],\
             ["micromatch", "npm:4.0.5"],\
@@ -6455,6 +6458,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-regex-util", "npm:29.4.3"],\
             ["jest-resolve", "npm:29.5.0"],\
             ["jest-runner", "npm:29.5.0"],\
+            ["jest-runtime", "npm:29.5.0"],\
             ["jest-util", "npm:29.5.0"],\
             ["jest-validate", "npm:29.5.0"],\
             ["micromatch", "npm:4.0.5"],\

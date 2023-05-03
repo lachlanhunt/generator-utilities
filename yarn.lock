@@ -1439,7 +1439,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/console@npm:^29.5.0":
+"@jest/console@npm:*, @jest/console@npm:^29.5.0":
   version: 29.5.0
   resolution: "@jest/console@npm:29.5.0"
   dependencies:
@@ -1551,7 +1551,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/reporters@npm:^29.5.0":
+"@jest/reporters@npm:*, @jest/reporters@npm:^29.5.0":
   version: 29.5.0
   resolution: "@jest/reporters@npm:29.5.0"
   dependencies:
@@ -4718,7 +4718,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-runtime@npm:^29.5.0":
+"jest-runtime@npm:*, jest-runtime@npm:^29.5.0":
   version: 29.5.0
   resolution: "jest-runtime@npm:29.5.0"
   dependencies:
