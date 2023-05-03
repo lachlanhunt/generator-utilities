@@ -1,10 +1,17 @@
 {
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.fixAll.eslint": false,
+    "source.fixAll.prettier": false
+  },
   "search.exclude": {
     "**/.yarn": true,
     "**/.pnp.*": true
   },
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
   "eslint.nodePath": ".yarn/sdks",
   "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-  "typescript.tsdk": ".yarn/sdks/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "jest.jestCommandLine": "yarn test",
+  "cSpell.language": "en,en-GB"
 }
