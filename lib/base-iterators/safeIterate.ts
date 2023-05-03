@@ -1,4 +1,4 @@
-import iterate from "./iterate";
+import { iterate } from "./iterate";
 
 /**
  * Generator that yields values from the provided object's iterator via [Symbol.iterator],
@@ -8,8 +8,8 @@ import iterate from "./iterate";
  * @param  {Iterable} it Any iterable object
  * @yields {*} Values from the provided object's iterator
  */
-export default function* safeIterate(it) {
-    let source = iterate(it);
+export function* safeIterate<T>(it: Iterable<T> | ArrayLike<T>) {
+    const source = iterate(it);
     let next;
 
     while (true) {

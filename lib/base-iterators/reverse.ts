@@ -5,11 +5,11 @@ import { toLength } from "../utils";
  * from the last item until the first
  *
  * @generator
- * @param  {ArrayLike} arrayLike An Array or Array-like object with a length property and
+ * @param arrayLike An Array or Array-like object with a length property and
  *                                  numeric properties.
- * @yields {*} Values from an Array or Array-like object beginning from the highest index
+ * @yields Values from an Array or Array-like object beginning from the highest index
  */
-export default function* reverse(arrayLike) {
+export function* reverse<T>(arrayLike: ArrayLike<T>) {
     for (let i = toLength(arrayLike.length) - 1; i >= 0; i--) {
         yield arrayLike[i];
     }
