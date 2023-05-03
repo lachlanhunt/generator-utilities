@@ -1,4 +1,5 @@
 import { iterate } from "./iterate";
+import { counter } from "../sequences/counter";
 
 describe("Iterating objects", () => {
     it("should yield values from an array", () => {
@@ -24,18 +25,16 @@ describe("Iterating objects", () => {
         }
     });
 
-    /* TODO Uncomment this test after the counter generator has been converted to TypeScript
     it("should finish the wrapped iterator when it returns", () => {
-        let c = counter();
-        let iterable = iterate(c);
+        const c = counter();
+        const iterable = iterate(c);
 
-        for (let value of iterable) {
+        for (const value of iterable) {
             if (value > 3) break;
         }
         expect(iterable.next().done).toBe(true);
         expect(c.next().done).toBe(true);
     });
-    */
 
     it("should work with array-like objects", () => {
         const obj: ArrayLike<number> = {

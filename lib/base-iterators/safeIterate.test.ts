@@ -1,4 +1,5 @@
 import { safeIterate } from "./safeIterate";
+import { counter } from "../sequences/counter";
 
 describe("Safely iterating objects", () => {
     it("should yield values from an array", () => {
@@ -25,15 +26,14 @@ describe("Safely iterating objects", () => {
         }
     });
 
-    // TODO Uncomment this test when counter has been converted to typescript
-    // it("should not finish the wrapped iterator when it returns", () => {
-    //     const c = counter();
-    //     const iterable = safeIterate(c);
+    it("should not finish the wrapped iterator when it returns", () => {
+        const c = counter();
+        const iterable = safeIterate(c);
 
-    //     for (const value of iterable) {
-    //         if (value > 3) break;
-    //     }
-    //     expect(iterable.next().done).toBe(true);
-    //     expect(c.next().done).toBe(false);
-    // });
+        for (const value of iterable) {
+            if (value > 3) break;
+        }
+        expect(iterable.next().done).toBe(true);
+        expect(c.next().done).toBe(false);
+    });
 });
