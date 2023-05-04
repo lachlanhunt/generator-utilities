@@ -10,7 +10,7 @@ describe("Iterating objects", () => {
             expect(iterable.next().value).toBe(arr[i]);
         }
     });
-    it("should invoke the [Symbol.iterator] method of an object", () => {
+    it("should invoke the [Symbol.iterator] method of an Iterable object", () => {
         const arr = [10, 20, 30, 40, 50];
         const obj = {
             *[Symbol.iterator]() {
@@ -25,7 +25,7 @@ describe("Iterating objects", () => {
         }
     });
 
-    it("should finish the wrapped iterator when it returns", () => {
+    it("should finish the wrapped Generator when it returns", () => {
         const c = counter();
         const iterable = iterate(c);
 
