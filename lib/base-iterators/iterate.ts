@@ -1,6 +1,6 @@
 import { isIterable } from "./isIterable";
 import { toLength } from "../utils";
-import { Iterable } from "./types";
+import { AnyIterable, Iterable } from "./types";
 
 /**
  * Delegates iteration to the provided Generator.
@@ -31,7 +31,7 @@ export function iterate<T, TReturn, TNext>(
  */
 export function iterate<T>(it: ArrayLike<T>): Generator<T, void, undefined>;
 
-export function* iterate<T, TReturn, TNext>(it: Iterable<T, TReturn, TNext> | ArrayLike<T>) {
+export function* iterate<T, TReturn, TNext>(it: AnyIterable<T, TReturn, TNext>) {
     if (isIterable(it)) {
         yield* it;
     } else {
