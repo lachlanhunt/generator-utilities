@@ -53,3 +53,5 @@ describe("Iterating objects", () => {
         }
     });
 });
+
+iterate(counter());
