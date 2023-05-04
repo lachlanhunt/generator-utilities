@@ -31,6 +31,16 @@ export function iterate<T, TReturn, TNext>(
  */
 export function iterate<T>(it: ArrayLike<T>): Generator<T, void, undefined>;
 
+export function iterate<T, TReturn, TNext>(
+    it: AnyIterable<T, TReturn, TNext>
+): typeof it extends Generator<T, TReturn, TNext>
+    ? Generator<T, TReturn, TNext>
+    : typeof it extends Iterable<T, TReturn, TNext>
+    ? ReturnType<(typeof it)[typeof Symbol.iterator]> extends Iterator<infer TYield, infer TReturn, infer TNext>
+        ? Generator<TYield, TReturn, TNext>
+        : never
+    : Generator<T, void, undefined>;
+
 export function* iterate<T, TReturn, TNext>(it: AnyIterable<T, TReturn, TNext>) {
     if (isIterable(it)) {
         yield* it;
