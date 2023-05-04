@@ -1,12 +1,12 @@
 import { isIterable } from "./isIterable";
 import { toLength } from "../utils";
-import { AnyIterable, Iterable } from "./types";
+import { AnyIterable, GeneratorReturnType, Iterable } from "./types";
 
 /**
  * Delegates iteration to the provided Generator.
  *
  * @param it Any generator.
- * @yields Values from the provided object's iterator, or its indexed values.
+ * @yields Values from the provided generator.
  */
 export function iterate<T, TReturn, TNext>(it: Generator<T, TReturn, TNext>): typeof it;
 
@@ -14,9 +14,8 @@ export function iterate<T, TReturn, TNext>(it: Generator<T, TReturn, TNext>): ty
  * Delegates iteration to the provided object's iterator via `[Symbol.iterator]`.
  *
  * @param it Any iterable object.
- * @yields Values from the provided object's iterator, or its indexed values.
+ * @yields Values from the provided object's iterator.
  */
-// extends Iterable<unknown, unknown, unknown>
 export function iterate<T, TReturn, TNext>(
     it: Iterable<T, TReturn, TNext>
 ): ReturnType<(typeof it)[typeof Symbol.iterator]> extends Iterator<infer TYield, infer TReturn, infer TNext>
@@ -26,20 +25,21 @@ export function iterate<T, TReturn, TNext>(
 /**
  * Iterates over the object's indexed values.
  *
- * @param it Any array-like object.
- * @yields Values from the provided object's iterator, or its indexed values.
+ * @param it Any Array-like object.
+ * @yields The object's indexed values.
  */
 export function iterate<T>(it: ArrayLike<T>): Generator<T, void, undefined>;
 
+/**
+ * Delegates iteration to the provided Generator or the provided object's iterator,
+ * or iterates over the object's indexed values.
+ *
+ * @param it Any Generator, Iterable or Array-like object
+ * @yields Values from the provided generator or object's iterator, or its indexed values.
+ */
 export function iterate<T, TReturn, TNext>(
     it: AnyIterable<T, TReturn, TNext>
-): typeof it extends Generator<T, TReturn, TNext>
-    ? Generator<T, TReturn, TNext>
-    : typeof it extends Iterable<T, TReturn, TNext>
-    ? ReturnType<(typeof it)[typeof Symbol.iterator]> extends Iterator<infer TYield, infer TReturn, infer TNext>
-        ? Generator<TYield, TReturn, TNext>
-        : never
-    : Generator<T, void, undefined>;
+): GeneratorReturnType<typeof it, T, TReturn, TNext>;
 
 export function* iterate<T, TReturn, TNext>(it: AnyIterable<T, TReturn, TNext>) {
     if (isIterable(it)) {

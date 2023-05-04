@@ -4,3 +4,11 @@ export interface Iterable<T, TReturn = any, TNext = undefined> {
 }
 
 export type AnyIterable<T, TReturn, TNext> = Iterable<T, TReturn, TNext> | ArrayLike<T> | Generator<T, TReturn, TNext>;
+
+export type GeneratorReturnType<TIterable, TYield, TReturn, TNext> = TIterable extends Generator<TYield, TReturn, TNext>
+    ? Generator<TYield, TReturn, TNext>
+    : TIterable extends Iterable<TYield, TReturn, TNext>
+    ? ReturnType<TIterable[typeof Symbol.iterator]> extends Iterator<infer TYield, infer TReturn, infer TNext>
+        ? Generator<TYield, TReturn, TNext>
+        : never
+    : Generator<TYield, void, undefined>;
