@@ -1,14 +1,37 @@
 import { isIterable } from "./isIterable";
 import { toLength } from "../utils";
+import { Iterable } from "./types";
 
 /**
- * Generator that delegates iteration to the provided object's iterator via [Symbol.iterator], or iterates over the object's indexed values.
+ * Delegates iteration to the provided Generator.
  *
- * @generator
- * @param it Any iterable or array-like object
- * @yields Values from the provided object's iterator, or its indexed values
+ * @param it Any generator.
+ * @yields Values from the provided object's iterator, or its indexed values.
  */
-export function* iterate<T>(it: Iterable<T> | ArrayLike<T>) {
+export function iterate<T, TReturn, TNext>(it: Generator<T, TReturn, TNext>): typeof it;
+
+/**
+ * Delegates iteration to the provided object's iterator via `[Symbol.iterator]`.
+ *
+ * @param it Any iterable object.
+ * @yields Values from the provided object's iterator, or its indexed values.
+ */
+// extends Iterable<unknown, unknown, unknown>
+export function iterate<T, TReturn, TNext>(
+    it: Iterable<T, TReturn, TNext>
+): ReturnType<(typeof it)[typeof Symbol.iterator]> extends Iterator<infer TYield, infer TReturn, infer TNext>
+    ? Generator<TYield, TReturn, TNext>
+    : never;
+
+/**
+ * Iterates over the object's indexed values.
+ *
+ * @param it Any array-like object.
+ * @yields Values from the provided object's iterator, or its indexed values.
+ */
+export function iterate<T>(it: ArrayLike<T>): Generator<T, void, undefined>;
+
+export function* iterate<T, TReturn, TNext>(it: Iterable<T, TReturn, TNext> | ArrayLike<T>) {
     if (isIterable(it)) {
         yield* it;
     } else {
