@@ -37,9 +37,7 @@ export function iterate<T>(it: ArrayLike<T>): Generator<T, void, undefined>;
  * @param it Any Generator, Iterable or Array-like object
  * @yields Values from the provided generator or object's iterator, or its indexed values.
  */
-export function iterate<T, TReturn, TNext>(
-    it: AnyIterable<T, TReturn, TNext>
-): GeneratorReturnType<typeof it, T, TReturn, TNext>;
+export function iterate<T, TReturn, TNext>(it: AnyIterable<T, TReturn, TNext>): GeneratorReturnType<typeof it>;
 
 export function* iterate<T, TReturn, TNext>(it: AnyIterable<T, TReturn, TNext>) {
     if (isIterable(it)) {
