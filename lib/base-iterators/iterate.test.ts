@@ -52,6 +52,20 @@ describe("Iterating objects", () => {
             expect(iterable.next().value).toBe(obj[i]);
         }
     });
-});
 
-iterate(counter());
+    it("should support passing values to the wrapped Generator via .next(value)", () => {
+        function* progressiveSum(): Generator<number, void, number> {
+            let sum = 0;
+
+            for (let i = 0; i < 5; i++) {
+                sum += yield sum;
+            }
+        }
+
+        const iterable = iterate(progressiveSum());
+        expect(iterable.next()).toEqual({ value: 0, done: false });
+        expect(iterable.next(10)).toEqual({ value: 10, done: false });
+        expect(iterable.next(10)).toEqual({ value: 20, done: false });
+        expect(iterable.next(10)).toEqual({ value: 30, done: false });
+    });
+});
