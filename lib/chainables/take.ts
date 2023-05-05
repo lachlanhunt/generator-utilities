@@ -7,12 +7,10 @@ import { AnyIterable, GeneratorReturnType, Iterable } from "../base-iterators/ty
  * @param n The number of values to yield
  * @yields The first `n` values from the given iterable
  */
-export function take<T, TReturn, TNext = unknown>(
+export function* take<T, TReturn, TNext = unknown>(
     it: AnyIterable<T, TReturn, TNext>,
-    n: number
-): GeneratorReturnType<typeof it, T, TReturn | void, TNext>;
-
-export function* take<T, TReturn, TNext = unknown>(it: AnyIterable<T, TReturn, TNext>, n = 1) {
+    n = 1
+): GeneratorReturnType<typeof it, T, TReturn | void, TNext> {
     let count = 0;
     if (n <= 0) return;
 
@@ -21,11 +19,14 @@ export function* take<T, TReturn, TNext = unknown>(it: AnyIterable<T, TReturn, T
 
         let nextInput: typeof it extends Iterable<unknown, unknown, infer TNext> ? TNext : undefined;
 
-        let result: IteratorResult<T, TReturn> = iterator.next();
+        let result: IteratorResult<T, TReturn | void> = iterator.next();
         while (!result.done) {
             nextInput = (yield result.value) as TNext;
 
-            if (++count >= n) return;
+            if (++count >= n) {
+                iterator.return();
+                return;
+            }
 
             result = iterator.next(nextInput);
         }
