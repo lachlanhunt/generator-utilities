@@ -2,9 +2,10 @@ import { isIterable, iterate } from "../base-iterators/index";
 import { AnyIterable } from "../base-iterators/types";
 
 /**
+ * Returns a generator that yields values mapped by the given mapping function.
  *
- * @param it Any iterable object
- * @param mapFn
+ * @param it Any iterable object.
+ * @param mapFn A mapping function to map from values yielded by the given iterable.
  */
 export default function* map<T, TReturn, TNext, TMapped>(
     it: AnyIterable<T, TReturn, TNext>,

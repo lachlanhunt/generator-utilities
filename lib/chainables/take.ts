@@ -3,6 +3,7 @@ import { AnyIterable, GeneratorReturnType } from "../base-iterators/types";
 
 /**
  * Yield the first `n` values from the given iterable.
+ *
  * @param it Any Generator, Iterable or Array-like object
  * @param n The number of values to yield
  * @yields The first `n` values from the given iterable
