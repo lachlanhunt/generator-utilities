@@ -35,4 +35,23 @@ describe("Safely iterating objects", () => {
         expect(iterable.next()).toEqual({ value: undefined, done: true });
         expect(c.next()).toEqual({ value: 0, done: false });
     });
+
+    it("should not finish the wrapped iterator when it throws", () => {
+        const c = counter();
+        const iterable = safeIterate(c);
+
+        expect(() => iterable.throw(new Error("test"))).toThrow("test");
+
+        expect(iterable.next()).toEqual({ value: undefined, done: true });
+        expect(c.next()).toEqual({ value: 0, done: false });
+    });
+
+    it("should support iterating array-like objects", () => {
+        const obj: ArrayLike<number> = { length: 5, 0: 10, 1: 20, 2: 30, 3: 40, 4: 50 };
+        const iterable = safeIterate(obj);
+
+        for (let i = 0; i <= obj.length; i++) {
+            expect(iterable.next().value).toBe(obj[i]);
+        }
+    });
 });
