@@ -32,8 +32,8 @@ describe("Iterating objects", () => {
         for (const value of iterable) {
             if (value > 3) break;
         }
-        expect(iterable.next().done).toBe(true);
-        expect(c.next().done).toBe(true);
+        expect(iterable.next()).toEqual({ value: undefined, done: true });
+        expect(c.next()).toEqual({ value: undefined, done: true });
     });
 
     it("should work with array-like objects", () => {
