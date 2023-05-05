@@ -18,4 +18,18 @@ describe("isIterable", () => {
     it("should return false if an object is not iterable", () => {
         expect(isIterable({ length: 0 })).toBe(false);
     });
+
+    it("should return true for strings", () => {
+        expect(isIterable("abc")).toBe(true);
+    });
+
+    it("should return true for generators", () => {
+        expect(
+            isIterable(
+                (function* () {
+                    yield 1;
+                })()
+            )
+        ).toBe(true);
+    });
 });
