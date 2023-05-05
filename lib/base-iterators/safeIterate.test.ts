@@ -30,10 +30,9 @@ describe("Safely iterating objects", () => {
         const c = counter();
         const iterable = safeIterate(c);
 
-        for (const value of iterable) {
-            if (value > 3) break;
-        }
-        expect(iterable.next().done).toBe(true);
-        expect(c.next().done).toBe(false);
+        iterable.return();
+
+        expect(iterable.next()).toEqual({ value: undefined, done: true });
+        expect(c.next()).toEqual({ value: 0, done: false });
     });
 });
