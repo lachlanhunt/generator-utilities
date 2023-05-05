@@ -21,6 +21,14 @@ describe("take generator", () => {
         expect(c.next()).toEqual({ value: undefined, done: true });
     });
 
+    it("should finish the wrapped iterate when return() is invoked", () => {
+        const c = counter();
+        const iterable = take(c, 5);
+        iterable.next();
+        iterable.return();
+        expect(c.next()).toEqual({ value: undefined, done: true });
+    });
+
     it("should return early when the wrapped generator returns", () => {
         function* gen() {
             yield 1;

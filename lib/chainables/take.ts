@@ -1,5 +1,5 @@
 import { isIterable, iterate } from "../base-iterators/";
-import { AnyIterable, GeneratorReturnType, Iterable } from "../base-iterators/types";
+import { AnyIterable, GeneratorReturnType } from "../base-iterators/types";
 
 /**
  * Yield the first `n` values from the given iterable.
@@ -13,21 +13,21 @@ export function* take<T, TReturn, TNext>(it: AnyIterable<T, TReturn, TNext>, n =
 
     if (isIterable(it)) {
         const iterable = iterate(it);
+        try {
+            let nextInput: TNext;
 
-        let nextInput: typeof it extends Iterable<unknown, unknown, infer TNext> ? TNext : undefined;
+            let result: IteratorResult<T, TReturn | void> = iterable.next();
+            while (!result.done) {
+                nextInput = yield result.value;
 
-        let result: IteratorResult<T, TReturn | void> = iterable.next();
-        while (!result.done) {
-            nextInput = yield result.value;
+                if (++count >= n) return;
 
-            if (++count >= n) {
-                iterable.return();
-                return;
+                result = iterable.next(nextInput);
             }
-
-            result = iterable.next(nextInput);
+            return result.value;
+        } finally {
+            iterable.return();
         }
-        return result.value;
     } else {
         const iterable = iterate(it);
         for (const value of iterable) {
