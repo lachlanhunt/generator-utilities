@@ -61,4 +61,20 @@ describe("take generator", () => {
         const result = [...iterable];
         expect(result).toEqual([]);
     });
+
+    it("should support passing values to the wrapped Generator via .next(value)", () => {
+        function* progressiveSum(): Generator<number, void, number> {
+            let sum = 0;
+
+            for (let i = 0; i < 5; i++) {
+                sum += yield sum;
+            }
+        }
+
+        const iterable = take(progressiveSum(), 3);
+        expect(iterable.next()).toEqual({ value: 0, done: false });
+        expect(iterable.next(10)).toEqual({ value: 10, done: false });
+        expect(iterable.next(10)).toEqual({ value: 20, done: false });
+        expect(iterable.next(10)).toEqual({ value: undefined, done: true });
+    });
 });

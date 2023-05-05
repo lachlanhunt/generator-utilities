@@ -7,37 +7,30 @@ import { AnyIterable, GeneratorReturnType, Iterable } from "../base-iterators/ty
  * @param n The number of values to yield
  * @yields The first `n` values from the given iterable
  */
-export function* take<T, TReturn, TNext = unknown>(
-    it: AnyIterable<T, TReturn, TNext>,
-    n = 1
-): GeneratorReturnType<typeof it, T, TReturn | void, TNext> {
+export function* take<T, TReturn, TNext>(it: AnyIterable<T, TReturn, TNext>, n = 1): GeneratorReturnType<typeof it> {
     let count = 0;
     if (n <= 0) return;
 
     if (isIterable(it)) {
-        const iterator = iterate(it);
+        const iterable = iterate(it);
 
         let nextInput: typeof it extends Iterable<unknown, unknown, infer TNext> ? TNext : undefined;
 
-        let result: IteratorResult<T, TReturn | void> = iterator.next();
+        let result: IteratorResult<T, TReturn | void> = iterable.next();
         while (!result.done) {
-            nextInput = (yield result.value) as TNext;
+            nextInput = yield result.value;
 
             if (++count >= n) {
-                iterator.return();
+                iterable.return();
                 return;
             }
 
-            result = iterator.next(nextInput);
+            result = iterable.next(nextInput);
         }
         return result.value;
     } else {
-        const iterator = iterate(it);
-
-        while (true) {
-            const { done, value } = iterator.next();
-            if (done) return value;
-
+        const iterable = iterate(it);
+        for (const value of iterable) {
             yield value;
 
             if (++count >= n) return;
