@@ -21,6 +21,13 @@ export const identity = <const T>(x: T): T => x;
 export const isEqual = <T>(a: T, b: T) => a === b;
 
 /**
+ * Checks if a value is an array-like object
+ * @param o The object to check
+ * @returns True if the object is an array-like object, false otherwise
+ */
+export const isArrayLike = <T>(o: unknown): o is ArrayLike<T> => typeof o === "object" && o !== null && "length" in o;
+
+/**
  * Returns a random integer between min and max
  * @param min The minimum value
  * @param max The maximum value

@@ -7,7 +7,7 @@ import { Iterable } from "./types";
  * @returns `true` if the object implements `Symbol.iterator`.
  */
 export function isIterable<T, TReturn, TNext>(
-    o: Iterable<T, TReturn, TNext> | ArrayLike<T>
+    o: Iterable<T, TReturn, TNext> | ArrayLike<T> | T
 ): o is Iterable<T, TReturn, TNext> {
-    return typeof o === "string" || Reflect.has(o, Symbol.iterator);
+    return typeof o === "string" || (typeof o === "object" && o !== null && Reflect.has(o, Symbol.iterator));
 }

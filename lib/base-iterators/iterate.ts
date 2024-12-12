@@ -28,7 +28,7 @@ export function iterate<T, TReturn, TNext>(
  * @param it Any Array-like object.
  * @yields The object's indexed values.
  */
-export function iterate<T>(it: ArrayLike<T>): Generator<T, void, undefined>;
+export function iterate<T, TReturn = void, TNext = undefined>(it: ArrayLike<T>): Generator<T, TReturn, TNext>;
 
 /**
  * Delegates iteration to the provided Generator or the provided object's iterator,

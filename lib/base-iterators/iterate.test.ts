@@ -48,9 +48,12 @@ describe("Iterating objects", () => {
 
         const iterable = iterate(obj);
 
-        for (let i = 0; i < obj.length; i++) {
-            expect(iterable.next().value).toBe(obj[i]);
-        }
+        expect(iterable.next().value).toBe(obj[0]);
+        expect(iterable.next().value).toBe(obj[1]);
+        expect(iterable.next().value).toBe(obj[2]);
+        expect(iterable.next().value).toBe(obj[3]);
+        expect(iterable.next().value).toBe(obj[4]);
+        expect(iterable.next().done).toBe(true);
     });
 
     it("should support passing values to the wrapped Generator via .next(value)", () => {

@@ -13,7 +13,6 @@ export const getVarArgs = (...args: [...number[], boolean] | number[]): [number,
     if (len === 0) {
         return [0, 1, false];
     } else if (typeof reversed[0] === "boolean") {
-        float = reversed[0];
         [float, max = 1, min = 0] = reversed as [boolean, number, number];
     } else {
         [max = 1, min = 0] = reversed as [number, number];
