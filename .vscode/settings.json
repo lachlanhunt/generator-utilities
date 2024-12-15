@@ -1,16 +1,15 @@
 {
-    "editor.codeActionsOnSave": {
-        "source.fixAll": "always",
-        "source.fixAll.eslint": "always",
-    },
-    "search.exclude": {
-        "**/.yarn": true,
-        "**/.pnp.*": true
-    },
-    "typescript.tsdk": ".yarn/sdks/typescript/lib",
-    "typescript.enablePromptUseWorkspaceTsdk": true,
-    "eslint.nodePath": ".yarn/sdks",
-    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-    "jest.jestCommandLine": "yarn test",
-    "cSpell.language": "en,en-GB"
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always"
+  },
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.format.enable": false,
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "eslint.nodePath": ".yarn/sdks",
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
+  "cSpell.language": "en,en-GB"
 }
