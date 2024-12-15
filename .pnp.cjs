@@ -41,6 +41,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-import-resolver-typescript", "virtual:6f189f9c41ecc3ddaac57793b4f23b87195ebc0618da662bc4d73d5eab5401d441dca2803719348fd8f425f76637f194e19987de2bc92e643dc371413b16d827#npm:3.7.0"],\
           ["eslint-plugin-import", "virtual:6f189f9c41ecc3ddaac57793b4f23b87195ebc0618da662bc4d73d5eab5401d441dca2803719348fd8f425f76637f194e19987de2bc92e643dc371413b16d827#npm:2.31.0"],\
           ["eslint-plugin-prettier", "virtual:6f189f9c41ecc3ddaac57793b4f23b87195ebc0618da662bc4d73d5eab5401d441dca2803719348fd8f425f76637f194e19987de2bc92e643dc371413b16d827#npm:5.2.1"],\
+          ["globals", "npm:15.13.0"],\
           ["husky", "npm:9.1.7"],\
           ["lint-staged", "npm:15.2.11"],\
           ["pinst", "npm:3.0.0"],\
@@ -5057,6 +5058,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-import-resolver-typescript", "virtual:6f189f9c41ecc3ddaac57793b4f23b87195ebc0618da662bc4d73d5eab5401d441dca2803719348fd8f425f76637f194e19987de2bc92e643dc371413b16d827#npm:3.7.0"],\
           ["eslint-plugin-import", "virtual:6f189f9c41ecc3ddaac57793b4f23b87195ebc0618da662bc4d73d5eab5401d441dca2803719348fd8f425f76637f194e19987de2bc92e643dc371413b16d827#npm:2.31.0"],\
           ["eslint-plugin-prettier", "virtual:6f189f9c41ecc3ddaac57793b4f23b87195ebc0618da662bc4d73d5eab5401d441dca2803719348fd8f425f76637f194e19987de2bc92e643dc371413b16d827#npm:5.2.1"],\
+          ["globals", "npm:15.13.0"],\
           ["husky", "npm:9.1.7"],\
           ["lint-staged", "npm:15.2.11"],\
           ["pinst", "npm:3.0.0"],\
@@ -5204,6 +5206,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/globals-npm-14.0.0-5fc3d8d5da-03939c8af9.zip/node_modules/globals/",\
         "packageDependencies": [\
           ["globals", "npm:14.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:15.13.0", {\
+        "packageLocation": "./.yarn/cache/globals-npm-15.13.0-ccaf286efa-ba84d0612d.zip/node_modules/globals/",\
+        "packageDependencies": [\
+          ["globals", "npm:15.13.0"]\
         ],\
         "linkType": "HARD"\
       }]\

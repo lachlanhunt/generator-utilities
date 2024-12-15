@@ -8,8 +8,9 @@ export type AnyIterable<T, TReturn, TNext> =
     | ArrayLike<T>
     | Generator<T, TReturn | void, TNext>;
 
-export type GeneratorReturnType<TIterable> = TIterable extends Iterable<infer TYield, infer TReturn, infer TNext>
-    ? Generator<TYield, TReturn | void, TNext>
-    : TIterable extends ArrayLike<infer TYield>
-    ? Generator<TYield, void, unknown>
-    : never;
+export type GeneratorReturnType<TIterable> =
+    TIterable extends Iterable<infer TYield, infer TReturn, infer TNext>
+        ? Generator<TYield, TReturn | void, TNext>
+        : TIterable extends ArrayLike<infer TYield>
+          ? Generator<TYield, void, unknown>
+          : never;
