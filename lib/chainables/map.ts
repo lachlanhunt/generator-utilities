@@ -7,9 +7,9 @@ import { AnyIterable } from "../base-iterators/types";
  * @param it Any iterable object.
  * @param mapFn A mapping function to map from values yielded by the given iterable.
  */
-export default function* map<T, TReturn, TNext, TMapped>(
+export function* map<T, TReturn, TNext, TMapped>(
     it: AnyIterable<T, TReturn, TNext>,
-    mapFn: (value: T) => TMapped
+    mapFn: (value: T) => TMapped,
 ): Generator<TMapped, void, TNext> {
     if (isIterable(it)) {
         const iterable = iterate(it);

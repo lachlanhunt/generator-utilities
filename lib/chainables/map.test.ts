@@ -1,6 +1,6 @@
 import { counter } from "../sequences/counter";
 import { identity } from "../utils";
-import map from "./map";
+import { map } from "./map";
 
 describe("map generator", () => {
     it("should yield values mapped by the given mapping function", () => {
