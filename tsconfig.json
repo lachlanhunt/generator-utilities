@@ -1,6 +1,6 @@
 {
-    "include": ["*.ts", "lib/**/*.ts", "eslint.config.mjs"],
-    "exclude": ["**/dist/**/*"],
+    "include": ["*.ts", "lib/**/*.ts", "eslint.config.mjs", "babel.config.cjs"],
+    "exclude": ["spec/**/*", "**/dist/**/*"],
     "compilerOptions": {
         /* Base Options: */
         "esModuleInterop": true,
@@ -16,7 +16,7 @@
         "noImplicitOverride": true,
         "noImplicitReturns": true,
         "noPropertyAccessFromIndexSignature": true,
-        "noUncheckedIndexedAccess": true,
+        // "noUncheckedIndexedAccess": true,
         /* Transpiling with TypeScript: */
         "moduleResolution": "Node",
         "module": "ESNext",

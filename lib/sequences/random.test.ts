@@ -56,7 +56,7 @@ describe("Random sequence", () => {
 
     beforeEach(() => {
         const mathRandom = iterate<number>(randomValues);
-        jest.spyOn(Math, "random").mockImplementation((): number => {
+        vi.spyOn(Math, "random").mockImplementation((): number => {
             const { value, done } = mathRandom.next();
             if (!done) {
                 return value;
