@@ -1,6 +1,6 @@
 import { isIterable } from "./isIterable";
 import { toLength } from "../utils";
-import { AnyIterable, GeneratorReturnType, Iterable } from "./types";
+import type { AnyIterable, GeneratorReturnType, Iterable } from "./types";
 
 /**
  * Delegates iteration to the provided Generator.
@@ -17,7 +17,7 @@ export function iterate<T, TReturn, TNext>(it: Generator<T, TReturn, TNext>): ty
  * @yields Values from the provided object's iterator.
  */
 export function iterate<T, TReturn, TNext>(
-    it: Iterable<T, TReturn, TNext>
+    it: Iterable<T, TReturn, TNext>,
 ): ReturnType<(typeof it)[typeof Symbol.iterator]> extends Iterator<infer TYield, infer TReturn, infer TNext>
     ? Generator<TYield, TReturn, TNext>
     : never;

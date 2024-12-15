@@ -11,14 +11,14 @@ import { counter } from "./counter";
  * @yields Arrays containing unique combinations of values from the set of the specified size
  */
 export function* combination(set, size) {
-    let src = Array.isArray(set) ? set : Array.from(set);
+    const src = Array.isArray(set) ? set : Array.from(set);
 
     // Clamp value between 1 and the length of the source array.
     // Default to the source length if size is outside that range.
-    let n = Math.min(Math.max(+size, 0) || src.length, src.length);
-    let m = n - 1;
+    const n = Math.min(Math.max(+size, 0) || src.length, src.length);
+    const m = n - 1;
 
-    let seq = [...take(counter(), n)]; // Sequence
+    const seq = [...take(counter(), n)]; // Sequence
 
     const maxValueAt = (index) => src.length - seq.length + index;
 

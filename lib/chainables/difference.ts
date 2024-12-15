@@ -1,4 +1,5 @@
 import { iterate } from "../base-iterators/index";
+import type { AnyIterable } from "../base-iterators/types";
 import { flatten } from "./flatten";
 
 /**
@@ -9,11 +10,11 @@ import { flatten } from "./flatten";
  * @param {Iterable} values One or more arrays or finitely iterable objects containing the set of values
  *         to be excluded by the generator.
  */
-export function* difference(it, ...values) {
-    let source = iterate(it);
-    let exclusions = [...flatten(values, 1)];
+export function* difference<T>(it: AnyIterable<T, void, void>, ...values) {
+    const source = iterate(it);
+    const exclusions = [...flatten(values, 1)];
 
-    for (let value of source) {
+    for (const value of source) {
         if (!exclusions.includes(value)) {
             yield value;
         }

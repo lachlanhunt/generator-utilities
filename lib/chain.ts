@@ -14,9 +14,9 @@ function defineChainableIterator(name) {
     };
 }
 
-let chain = {};
+const chain = {};
 
-for (let sequence of Reflect.ownKeys(sequences)) {
+for (const sequence of Reflect.ownKeys(sequences)) {
     Reflect.defineProperty(chain, sequence, {
         configurable: true,
         enumerable: true,
@@ -25,7 +25,7 @@ for (let sequence of Reflect.ownKeys(sequences)) {
     });
 }
 
-for (let chainable of Reflect.ownKeys(chainables)) {
+for (const chainable of Reflect.ownKeys(chainables)) {
     Reflect.defineProperty(chain, chainable, {
         configurable: true,
         enumerable: true,

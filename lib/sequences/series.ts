@@ -8,12 +8,12 @@ export function* series(f, ...n) {
         n = [1];
     }
 
-    for (let value of n) {
+    for (const value of n) {
         yield value;
     }
 
     while (true) {
-        let next = f(...n);
+        const next = f(...n);
         n.shift();
         n.push(next);
         yield next;

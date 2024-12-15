@@ -12,10 +12,10 @@ import { identity } from "../utils";
  * @param mapFn
  */
 export function* differenceBy(it, values, mapFn = identity) {
-    let source = iterate(it);
-    let exclusions = Array.from(values, mapFn);
+    const source = iterate(it);
+    const exclusions = Array.from(values, mapFn);
 
-    for (let value of source) {
+    for (const value of source) {
         if (!exclusions.includes(mapFn(value))) {
             yield value;
         }

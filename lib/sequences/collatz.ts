@@ -11,8 +11,8 @@ import { takeUntil } from "../chainables/index";
 export function* collatz(n) {
     if (n < 1 || n % 1) return;
 
-    let f = (n) => (n % 2 ? n * 3 + 1 : n / 2);
-    let s = series(f, n);
-    let predicate = (n) => n === 1;
+    const f = (n) => (n % 2 ? n * 3 + 1 : n / 2);
+    const s = series(f, n);
+    const predicate = (n) => n === 1;
     yield* takeUntil(s, predicate);
 }

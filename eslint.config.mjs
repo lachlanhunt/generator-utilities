@@ -8,6 +8,9 @@ import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
 export default tseslint.config(
     { files: ["**/*.{js,mjs,cjs,ts}"] },
     {
+        ignores: [".husky/", ".vscode/", ".yarn/", "dist/", "node_modules/", "spec/", ".pnp.*"],
+    },
+    {
         languageOptions: {
             globals: globals.node,
             parserOptions: {
@@ -25,6 +28,8 @@ export default tseslint.config(
     {
         rules: {
             "@typescript-eslint/no-unnecessary-condition": ["error", { allowConstantLoopConditions: true }],
+            "@typescript-eslint/consistent-type-imports": "error",
+            "@typescript-eslint/consistent-type-exports": "error",
         },
     },
     // tseslintConfigs.stylistic,

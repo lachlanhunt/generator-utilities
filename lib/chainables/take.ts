@@ -1,5 +1,5 @@
 import { isIterable, iterate } from "../base-iterators/";
-import { AnyIterable, GeneratorReturnType } from "../base-iterators/types";
+import type { AnyIterable, GeneratorReturnType } from "../base-iterators/types";
 
 /**
  * Yield the first `n` values from the given iterable.

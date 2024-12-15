@@ -7,10 +7,10 @@ import { identity } from "../utils";
  * @param predicate
  */
 export function* dropUntil(it, predicate = identity) {
-    let source = iterate(it);
+    const source = iterate(it);
     let cleanup = true;
     try {
-        for (let value of safeIterate(source)) {
+        for (const value of safeIterate(source)) {
             // Safely iterate to prevent for..of from finishing the iterator
             if (predicate(value)) {
                 yield value;

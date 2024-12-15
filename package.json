@@ -9,6 +9,7 @@
         "prepack": "pinst --disable",
         "postpack": "pinst --enable",
         "test": "vitest",
+        "lint": "eslint .",
         "docs": "jsdoc -c jsdoc.conf.json",
         "typecheck": "tsc --noEmit",
         "build": "tsc --project tsconfig.build.json",

@@ -8,7 +8,7 @@ import { identity } from "../utils";
  */
 export function* filter(it, predicate = identity) {
     let i = 0;
-    for (let value of iterate(it)) {
+    for (const value of iterate(it)) {
         if (predicate(value, i++)) {
             yield value;
         }

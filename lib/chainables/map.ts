@@ -1,5 +1,5 @@
 import { isIterable, iterate } from "../base-iterators/index";
-import { AnyIterable } from "../base-iterators/types";
+import type { AnyIterable } from "../base-iterators/types";
 
 /**
  * Returns a generator that yields values mapped by the given mapping function.

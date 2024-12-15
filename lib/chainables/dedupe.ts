@@ -1,5 +1,5 @@
 import { iterate } from "../base-iterators";
-import { AnyIterable } from "../base-iterators/types";
+import type { AnyIterable } from "../base-iterators/types";
 import { isEqual } from "../utils";
 
 const UNDEFINED = Symbol("undefined");

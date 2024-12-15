@@ -6,7 +6,7 @@ import { iterate } from "../base-iterators/index";
  * @param prop
  */
 export function* pluck(it, prop) {
-    for (let value of iterate(it)) {
+    for (const value of iterate(it)) {
         yield value !== null && value !== undefined ? value[prop] : undefined;
     }
 }

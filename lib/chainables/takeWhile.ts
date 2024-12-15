@@ -7,7 +7,7 @@ import { identity } from "../utils";
  * @returns {*}
  */
 export function* takeWhile(it, predicate = identity) {
-    for (let value of iterate(it)) {
+    for (const value of iterate(it)) {
         if (!predicate(value)) return value;
         yield value;
     }

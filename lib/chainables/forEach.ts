@@ -8,7 +8,7 @@ import { identity } from "../utils";
  */
 export function* forEach(it, fn = identity) {
     let index = 0;
-    for (let value of iterate(it)) {
+    for (const value of iterate(it)) {
         fn(value, index++);
         yield value;
     }

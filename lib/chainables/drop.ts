@@ -7,7 +7,7 @@ import { take } from "./take";
  * @param n
  */
 export function* drop(it, n = 1) {
-    let source = iterate(it);
+    const source = iterate(it);
     void [...take(safeIterate(source), n)]; // Safely iterate to prevent take() from finishing the iterator
     yield* source;
 }

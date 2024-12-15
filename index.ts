@@ -1,9 +1,4 @@
-export {
-    isIterable,
-    iterate,
-    reverse,
-    safeIterate
-} from "./lib/base-iterators/index";
+export { isIterable, iterate, reverse, safeIterate } from "./lib/base-iterators/";
 
 export {
     chunk,
@@ -30,8 +25,8 @@ export {
     takeUntil,
     takeWhile,
     unzip,
-    zip
-} from "./lib/chainables/index";
+    zip,
+} from "./lib/chainables/";
 
 export {
     combination,
@@ -47,7 +42,7 @@ export {
     thueMorse,
     collatz,
     fibonacci,
-    fizzBuzz
-} from "./lib/sequences/index";
+    fizzBuzz,
+} from "./lib/sequences/";
 
-export { default } from "./lib/chain.mjs";
+export { default } from "./lib/chain";

@@ -8,10 +8,10 @@ import { isEqual } from "../utils";
  * @param comparator
  */
 export function* differenceWith(it, values, comparator = isEqual) {
-    let source = iterate(it);
-    let exclusions = Array.from(values);
+    const source = iterate(it);
+    const exclusions = Array.from(values);
 
-    for (let value of source) {
+    for (const value of source) {
         if (!exclusions.some((otherValue) => comparator(value, otherValue))) {
             yield value;
         }

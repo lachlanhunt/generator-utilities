@@ -15,15 +15,15 @@ import { counter } from "./counter";
 export function* range(
     start = 0,
     end = (() => {
-        let end = start;
+        const end = start;
         start = 0;
         return end;
     })(),
     step = (() => (start < end ? 1 : -1))(),
 ) {
-    let count = counter(start, step);
+    const count = counter(start, step);
 
-    let predicate = Math.sign(step) < 0 ? (v) => v > end : (v) => v < end;
+    const predicate = Math.sign(step) < 0 ? (v) => v > end : (v) => v < end;
 
     yield* takeWhile(count, predicate);
 }

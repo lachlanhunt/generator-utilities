@@ -9,7 +9,7 @@ import { iterate } from "../base-iterators/index";
 export function* everyNth(it, n, takeFirst = false) {
     let i = +!takeFirst;
 
-    for (let value of iterate(it)) {
+    for (const value of iterate(it)) {
         if (i === 0) {
             yield value;
         }

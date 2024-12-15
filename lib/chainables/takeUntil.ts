@@ -7,7 +7,7 @@ import { identity } from "../utils";
  * @param predicate
  */
 export function* takeUntil(it, predicate = identity) {
-    for (let value of iterate(it)) {
+    for (const value of iterate(it)) {
         yield value;
         if (predicate(value)) return;
     }

@@ -10,10 +10,10 @@
  */
 export function* repeat(generatorFn, ...args) {
     while (true) {
-        let it = typeof generatorFn === "function" ? generatorFn(...args) : generatorFn;
+        const it = typeof generatorFn === "function" ? generatorFn(...args) : generatorFn;
         let empty = true;
 
-        for (let value of it) {
+        for (const value of it) {
             empty = false;
             yield value;
         }

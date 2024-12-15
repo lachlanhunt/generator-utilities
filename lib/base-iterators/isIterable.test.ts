@@ -9,8 +9,8 @@ describe("isIterable", () => {
                 new Map([
                     [1, 2],
                     [3, 4],
-                ])
-            )
+                ]),
+            ),
         ).toBe(true);
         expect(isIterable("abc")).toBe(true);
     });
@@ -28,8 +28,8 @@ describe("isIterable", () => {
             isIterable(
                 (function* () {
                     yield 1;
-                })()
-            )
+                })(),
+            ),
         ).toBe(true);
     });
 });
