@@ -8,6 +8,6 @@ import { filter } from "./filter";
  *
  * @param it Any iterable object
  */
-export function* compact<T, TReturn, TNext>(it: AnyIterable<T, TReturn, TNext>) {
+export function* compact<T>(it: AnyIterable<T, void, void>) {
     yield* filter(it, identity);
 }

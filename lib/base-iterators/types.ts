@@ -12,3 +12,5 @@ export type GeneratorReturnType<TIterable> =
         : TIterable extends ArrayLike<infer TYield>
           ? Generator<TYield, void, unknown>
           : never;
+
+export type Predicate<T, TResult = unknown> = (value: T, index: number) => TResult;
