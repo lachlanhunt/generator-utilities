@@ -1,4 +1,4 @@
-import { take } from "../chainables/index";
+import { take } from "../chainables/";
 import { counter } from "./counter";
 
 /**

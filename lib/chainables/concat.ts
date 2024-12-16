@@ -1,4 +1,4 @@
-import { isIterable, iterate } from "../base-iterators/index";
+import { isIterable, iterate } from "../base-iterators/";
 import { isArrayLike } from "../utils";
 
 interface Iterable<T, TReturn = unknown, TNext = unknown> {

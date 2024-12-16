@@ -1,5 +1,5 @@
-import { fuzz } from "../chainables/index";
-import { counter } from "./counter";
+import { fuzz } from "./fuzz";
+import { counter } from "../sequences/counter";
 
 /**
  * [fizzBuzz description]

@@ -1,4 +1,5 @@
-import { iterate } from "../base-iterators/index";
+import { iterate } from "../base-iterators/";
+import type { AnyIterable, Predicate } from "../base-iterators/types";
 import { identity } from "../utils";
 
 /**
@@ -6,7 +7,7 @@ import { identity } from "../utils";
  * @param {Iterable} it Any iterable object
  * @param predicate
  */
-export function* takeUntil(it, predicate = identity) {
+export function* takeUntil<T>(it: AnyIterable<T, void, void>, predicate: Predicate<T> = identity) {
     for (const value of iterate(it)) {
         yield value;
         if (predicate(value)) return;

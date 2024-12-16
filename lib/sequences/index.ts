@@ -1,4 +1,3 @@
-export { iterate, safeIterate, reverse } from "../base-iterators/index";
 export { combination } from "./combination";
 export { counter } from "./counter";
 export { random } from "./random";
@@ -9,7 +8,3 @@ export { permutation } from "./permutation";
 export { series } from "./series";
 export { shuffle } from "./shuffle";
 export { symbols } from "./symbols";
-export { thueMorse } from "./thueMorse";
-export { collatz } from "./collatz";
-export { fibonacci } from "./fibonacci";
-export { fizzBuzz } from "./fizzBuzz";

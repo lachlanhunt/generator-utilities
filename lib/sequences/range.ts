@@ -1,4 +1,5 @@
-import { takeWhile } from "../chainables/index";
+import type { Predicate } from "../base-iterators/types";
+import { takeWhile } from "../chainables/";
 import { counter } from "./counter";
 
 /**
@@ -23,7 +24,7 @@ export function* range(
 ) {
     const count = counter(start, step);
 
-    const predicate = Math.sign(step) < 0 ? (v) => v > end : (v) => v < end;
+    const predicate: Predicate<number> = Math.sign(step) < 0 ? (v) => v > end : (v) => v < end;
 
     yield* takeWhile(count, predicate);
 }

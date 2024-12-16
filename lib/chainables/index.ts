@@ -17,7 +17,6 @@ export { everyNth } from "./everyNth";
 export { filter } from "./filter";
 export { flatten } from "./flatten";
 export { forEach } from "./forEach";
-export { fuzz } from "./fuzz";
 export { interlace } from "./interlace";
 export { link } from "./link";
 export { map } from "./map";

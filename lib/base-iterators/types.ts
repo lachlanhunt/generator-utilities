@@ -13,4 +13,4 @@ export type GeneratorReturnType<TIterable> =
           ? Generator<TYield, void, unknown>
           : never;
 
-export type Predicate<T, TResult = unknown> = (value: T, index: number) => TResult;
+export type Predicate<T, TResult = unknown> = (value: T) => TResult;

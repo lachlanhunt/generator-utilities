@@ -1,10 +1,11 @@
-import { iterate } from "../base-iterators/index";
+import { iterate } from "../base-iterators/";
+import type { AnyIterable } from "../base-iterators/types";
 
 /**
  *
  * @param them
  */
-export function* zip(...them) {
+export function* zip<T>(...them: AnyIterable<T, void, void>[]) {
     if (them.length) {
         const iterators = them.map(iterate);
         while (true) {

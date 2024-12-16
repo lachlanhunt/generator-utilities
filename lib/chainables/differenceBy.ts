@@ -1,4 +1,5 @@
-import { iterate } from "../base-iterators/index";
+import { iterate } from "../base-iterators/";
+import type { AnyIterable } from "../base-iterators/types";
 import { identity } from "../utils";
 
 /**
@@ -6,17 +7,21 @@ import { identity } from "../utils";
  * is mapped using the supplied map function prior to comparing. Any Iterable passed to the values parameter
  * must yield a finite sequence to avoid an infinite loop.
  *
- * @param {Iterable} it Any iterable object
- * @param {Iterable} values An array or finitely iterable object containing the set of values
- *         to be excluded by the generator.
+ * @param it Any iterable object
+ * @param values An array or finitely iterable object containing the set of values
+ *        to be excluded by the generator.
  * @param mapFn
  */
-export function* differenceBy(it, values, mapFn = identity) {
+export function* differenceBy<T, U>(
+    it: AnyIterable<T, void, void>,
+    values: AnyIterable<U, void, void>,
+    mapFn: (value: T | U) => unknown = identity,
+) {
     const source = iterate(it);
-    const exclusions = Array.from(values, mapFn);
+    const exclusions = new Set(Array.from(values, mapFn));
 
     for (const value of source) {
-        if (!exclusions.includes(mapFn(value))) {
+        if (!exclusions.has(mapFn(value))) {
             yield value;
         }
     }

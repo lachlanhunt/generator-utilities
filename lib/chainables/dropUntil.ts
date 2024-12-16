@@ -1,4 +1,4 @@
-import { iterate, safeIterate } from "../base-iterators/index";
+import { iterate, safeIterate } from "../base-iterators/";
 import { identity } from "../utils";
 
 /**

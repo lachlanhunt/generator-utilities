@@ -1,4 +1,4 @@
-import { iterate } from "../base-iterators/index";
+import { iterate } from "../base-iterators/";
 
 /**
  *

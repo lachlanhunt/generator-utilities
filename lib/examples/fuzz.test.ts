@@ -1,9 +1,10 @@
-const { fuzz, range } = require("./");
+import { range } from "../sequences/";
+import { fuzz } from "./fuzz";
 
 describe("fuzz generator", () => {
     it("should map numbers according to the rules of FizzBuzz", () => {
-        let iterator = fuzz(range(1, 16));
-        let result = [...iterator];
+        const iterator = fuzz(range(1, 16));
+        const result = [...iterator];
         expect(result).toEqual([
             1,
             2,

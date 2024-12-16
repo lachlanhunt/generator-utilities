@@ -1,4 +1,5 @@
-import { iterate } from "../base-iterators/index";
+import { iterate } from "../base-iterators/";
+import type { AnyIterable, Predicate } from "../base-iterators/types";
 import { identity } from "../utils";
 /**
  *
@@ -6,9 +7,9 @@ import { identity } from "../utils";
  * @param predicate
  * @returns {*}
  */
-export function* takeWhile(it, predicate = identity) {
+export function* takeWhile<T>(it: AnyIterable<T, void, void>, predicate: Predicate<T> = identity) {
     for (const value of iterate(it)) {
-        if (!predicate(value)) return value;
+        if (!predicate(value)) return;
         yield value;
     }
 }
