@@ -23,4 +23,51 @@ describe("Shuffle sequence", () => {
         const result = [...iterator];
         expect(result).toEqual([2, 1, 3, 4]);
     });
+
+    it("should randomly yield values from iterable", () => {
+        const iterator = shuffle(new Set([1, 2, 3, 4]));
+        const result = [...iterator];
+        expect(result).toEqual([2, 1, 3, 4]);
+    });
+
+    it("should yield nothing from empty iterable", () => {
+        const iterator = shuffle([]);
+        const result = [...iterator];
+        expect(result).toEqual([]);
+    });
+
+    it("should handle ArrayLike objects", () => {
+        const arrayLike = {
+            0: 1,
+            1: 2,
+            2: 3,
+            3: 4,
+            length: 4,
+        };
+        const iterator = shuffle(arrayLike);
+        const result = [...iterator];
+        expect(result).toEqual([2, 1, 3, 4]);
+    });
+
+    it("should handle empty ArrayLike objects", () => {
+        const arrayLike = {
+            length: 0,
+        };
+        const iterator = shuffle(arrayLike);
+        const result = [...iterator];
+        expect(result).toEqual([]);
+    });
+
+    it("should yield nothing from ArrayLike objects with invalid lengths", () => {
+        const arrayLike = {
+            0: 1,
+            1: 2,
+            2: 3,
+            3: 4,
+            length: -1,
+        };
+        const iterator = shuffle(arrayLike);
+        const result = [...iterator];
+        expect(result).toEqual([]);
+    });
 });

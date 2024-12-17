@@ -1,26 +1,25 @@
-import { randomInt } from "../utils";
+import type { AnyIterable } from "../base-iterators/types";
+import { isArray, randomInt } from "../utils";
 import { range } from "./range";
 
-export function* shuffle(set) {
-    // Special undefined value to distingush between undefined values from set and unfilled values in deck;
-    const UNDEFINED = Symbol("undefined");
-    const src = Array.isArray(set) ? set : Array.from(set);
+// Special unfilled value to distingush between undefined values from set and unfilled values in deck;
+const UNFILLED = Symbol("unfilled");
+type UNFILLED = typeof UNFILLED;
 
-    const getValue = (a) => (a === undefined ? UNDEFINED : a);
+export function* shuffle<T>(set: AnyIterable<T>) {
+    const src = isArray(set) ? set : Array.from(set);
+    const length = src.length;
+    const deck: (T | UNFILLED)[] = Array.from({ length }, () => UNFILLED);
 
-    function pick(index) {
+    function pick(index: number) {
         const a = deck[index];
         const b = src[index];
-        return a === undefined ? getValue(b) : a;
+        return a === UNFILLED ? b : a;
     }
 
-    const len = +src.length || 0;
-    const deck = new Array(len);
-
-    for (const i of range(len)) {
-        const j = randomInt(i, len - 1);
+    for (const i of range(length)) {
+        const j = randomInt(i, length - 1);
         [deck[i], deck[j]] = [pick(j), pick(i)];
-
-        yield deck[i] === UNDEFINED ? undefined : deck[i];
+        yield deck[i];
     }
 }

@@ -1,10 +1,11 @@
 import { take } from "../chainables/take";
 import { counter } from "./counter";
-import { swap } from "../utils";
+import { isArray, swap } from "../utils";
+import type { AnyIterable } from "../base-iterators/types";
 
 // Knuth's Algorithm L implementation
-export function* permute(set) {
-    const src = Array.isArray(set) ? set : Array.from(set);
+export function* permute<T>(set: AnyIterable<T>) {
+    const src = isArray(set) ? set : Array.from(set);
     const seq = [...take(counter(), src.length)];
 
     while (true) {

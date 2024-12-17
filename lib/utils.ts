@@ -1,3 +1,5 @@
+import type { AnyIterable } from "./base-iterators/types";
+
 /**
  * The identity function
  * @param x Any value
@@ -26,6 +28,8 @@ export const isEqual = <T>(a: T, b: T) => a === b;
  * @returns True if the object is an array-like object, false otherwise
  */
 export const isArrayLike = <T>(o: unknown): o is ArrayLike<T> => typeof o === "object" && o !== null && "length" in o;
+
+export const isArray = <T>(o: AnyIterable<T>): o is T[] => Array.isArray(o);
 
 /**
  * Returns a random integer between min and max

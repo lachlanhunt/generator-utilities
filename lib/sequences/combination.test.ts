@@ -1,4 +1,4 @@
-const { combination, range } = require("./");
+import { combination, range } from "./";
 
 describe("Combination generator", () => {
     it("should generate unique combinations", () => {

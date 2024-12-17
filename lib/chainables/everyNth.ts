@@ -16,7 +16,7 @@ export function* everyNth<T>(it: AnyIterable<T>, n: number, takeFirst = false) {
         const start = takeFirst ? 0 : n - 1;
 
         for (const i of counter(start, n)) {
-            if (i >= it.length /*?*/) {
+            if (i >= it.length) {
                 break;
             }
             yield it[i];

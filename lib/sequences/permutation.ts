@@ -1,6 +1,6 @@
 import ArraySlice from "arrayslice";
 import { range } from "./range";
-import { swap } from "../utils";
+import { isArray, swap } from "../utils";
 
 /**
  * k-permutation generator. Generates permutations of size k from a set of size n.
@@ -8,7 +8,7 @@ import { swap } from "../utils";
  * @param size
  */
 export function* permutation(set, size) {
-    const src = Array.isArray(set) ? set : Array.from(set);
+    const src = isArray(set) ? set : Array.from(set);
     const seq = [...range(0, src.length)]; // Sequence
 
     // Clamp value between 1 and the length of the source array.
