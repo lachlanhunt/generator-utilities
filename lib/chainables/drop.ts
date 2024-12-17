@@ -4,7 +4,7 @@ import { take } from "./take";
 
 /**
  *
- * @param {Iterable} it Any iterable object
+ * @param it Any iterable object
  * @param n
  */
 export function* drop<T>(it: AnyIterable<T, void, void>, n = 1) {

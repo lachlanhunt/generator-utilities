@@ -2,7 +2,7 @@ import { iterate } from "../base-iterators/";
 
 /**
  *
- * @param {Iterable} it Any iterable object
+ * @param it Any iterable object
  * @param prop
  */
 export function* pluck(it, prop) {

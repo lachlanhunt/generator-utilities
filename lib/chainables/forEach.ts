@@ -1,15 +1,15 @@
 import { iterate } from "../base-iterators/";
+import type { AnyIterable, Predicate } from "../base-iterators/types";
 import { identity } from "../utils";
 
 /**
  *
- * @param {Iterable} it Any iterable object
+ * @param it Any iterable object
  * @param fn
  */
-export function* forEach(it, fn = identity) {
-    let index = 0;
+export function* forEach<T>(it: AnyIterable<T, void, void>, fn: Predicate<T> = identity) {
     for (const value of iterate(it)) {
-        fn(value, index++);
+        fn(value);
         yield value;
     }
 }

@@ -1,12 +1,13 @@
 import { iterate, safeIterate } from "../base-iterators/";
+import type { AnyIterable, Predicate } from "../base-iterators/types";
 import { identity } from "../utils";
 
 /**
  *
- * @param {Iterable} it Any iterable object
+ * @param it Any iterable object
  * @param predicate
  */
-export function* dropUntil(it, predicate = identity) {
+export function* dropUntil<T>(it: AnyIterable<T, void, void>, predicate: Predicate<T> = identity) {
     const source = iterate(it);
     let cleanup = true;
     try {

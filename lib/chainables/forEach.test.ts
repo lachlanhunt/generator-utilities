@@ -1,14 +1,15 @@
 import { forEach } from "./forEach";
+import { zip } from "./zip";
 
 describe("forEach generator", () => {
     it("should call a callback for each value", () => {
         const source = ["a", "b", "c"];
-        const spy = jasmine.createSpy("forEach");
+        const spy = vi.fn();
         const iterator = forEach(source, spy);
 
-        for (let i = 0; i < source.length; i++) {
-            expect(iterator.next().value).toBe(source[i]);
-            expect(spy.calls.mostRecent().args).toEqual([source[i], i]);
+        for (const [result, value] of zip(iterator, source)) {
+            expect(result).toBe(value);
+            expect(spy).toHaveBeenCalledWith(value);
         }
     });
 });

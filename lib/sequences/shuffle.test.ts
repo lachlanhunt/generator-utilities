@@ -1,3 +1,4 @@
+import { iterate } from "../base-iterators";
 import { shuffle } from "./shuffle";
 
 describe("Shuffle sequence", () => {
@@ -7,12 +8,19 @@ describe("Shuffle sequence", () => {
     ];
 
     beforeEach(() => {
-        spyOn(Math, "random").and.returnValues(...randomValues);
+        const mathRandom = iterate<number>(randomValues);
+        vi.spyOn(Math, "random").mockImplementation((): number => {
+            const { value, done } = mathRandom.next();
+            if (!done) {
+                return value;
+            }
+            return 0;
+        });
     });
 
     it("should randomly yield values", () => {
-        let iterator = shuffle([1, 2, 3, 4]);
-        let result = [...iterator];
+        const iterator = shuffle([1, 2, 3, 4]);
+        const result = [...iterator];
         expect(result).toEqual([2, 1, 3, 4]);
     });
 });

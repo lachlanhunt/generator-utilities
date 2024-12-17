@@ -8,9 +8,9 @@ import { counter } from "./counter";
  * If end is less than start, then the default step is -1;
  *
  * @generator
- * @param {number} [start=0] The value to start the range from
- * @param {number} end The end of the range (excluded)
- * @param {number} [step=1] The value to increment or decrement by.
+ * @param [start=0] The value to start the range from
+ * @param end The end of the range (excluded)
+ * @param [step=1] The value to increment or decrement by.
  * @yields numbers in the sequence
  */
 export function* range(

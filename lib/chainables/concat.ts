@@ -1,9 +1,6 @@
 import { isIterable, iterate } from "../base-iterators/";
+import type { AnyIterable } from "../base-iterators/types";
 import { isArrayLike } from "../utils";
-
-interface Iterable<T, TReturn = unknown, TNext = unknown> {
-    [Symbol.iterator](): Iterator<T, TReturn, TNext>;
-}
 
 /**
  * Takes any number of parameters and sequentially yields all values from them. If the given object is
@@ -13,7 +10,7 @@ interface Iterable<T, TReturn = unknown, TNext = unknown> {
  * @param them Any objects or values
  */
 export function* concat<T, TNext = unknown>(
-    ...them: (Iterable<T, void, TNext> | ArrayLike<T> | T)[]
+    ...them: (AnyIterable<T, void, TNext> | ArrayLike<T> | T)[]
 ): Generator<T, void, TNext> {
     for (const it of them) {
         if (isIterable(it)) {

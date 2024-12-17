@@ -4,7 +4,7 @@ import { identity } from "../utils";
 
 /**
  *
- * @param {Iterable} it Any iterable object
+ * @param it Any iterable object
  * @param predicate
  */
 export function* takeUntil<T>(it: AnyIterable<T, void, void>, predicate: Predicate<T> = identity) {
