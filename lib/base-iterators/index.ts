@@ -7,3 +7,5 @@ export { isIterable } from "./isIterable";
 export { iterate } from "./iterate";
 export { reverse } from "./reverse";
 export { safeIterate } from "./safeIterate";
+
+export type { AnyIterable, GeneratorReturnType, Iterable, Predicate } from "./types";

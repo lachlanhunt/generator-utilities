@@ -1,4 +1,5 @@
 export { isIterable, iterate, reverse, safeIterate } from "./lib/base-iterators/";
+export type { AnyIterable, GeneratorReturnType, Iterable, Predicate } from "./lib/base-iterators/";
 
 export {
     chunk,
@@ -15,7 +16,6 @@ export {
     filter,
     flatten,
     forEach,
-    fuzz,
     interlace,
     link,
     map,
@@ -39,10 +39,4 @@ export {
     series,
     shuffle,
     symbols,
-    thueMorse,
-    collatz,
-    fibonacci,
-    fizzBuzz,
 } from "./lib/sequences/";
-
-export { default } from "./lib/chain";

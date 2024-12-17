@@ -4,7 +4,6 @@ export interface Iterable<T, TReturn = any, TNext = undefined> {
 }
 
 export type AnyIterable<T, TReturn = void, TNext = void> = Iterable<T, TReturn | void, TNext> | ArrayLike<T>;
-// | Generator<T, TReturn | void, TNext>;
 
 export type GeneratorReturnType<TIterable> =
     TIterable extends Iterable<infer TYield, infer TReturn, infer TNext>
