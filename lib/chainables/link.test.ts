@@ -1,4 +1,6 @@
-const { link, fuzz, range } = require("./");
+import { fuzz } from "../examples/fuzz";
+import { range } from "../sequences";
+import { link } from "./";
 
 describe("link generator", () => {
     it("should invoke the given generator function by passing the given iterator and yield the values from it", () => {
