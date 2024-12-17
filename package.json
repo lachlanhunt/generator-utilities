@@ -1,7 +1,7 @@
 {
     "name": "generator-utilities",
     "packageManager": "yarn@4.5.3",
-    "version": "0.2.1",
+    "version": "1.0.0-alpha.1",
     "description": "A utility library for generating and processing sequences based on ES6 generators.",
     "main": "index",
     "type": "module",
@@ -56,5 +56,6 @@
     },
     "lint-staged": {
         "**/*": "prettier --write --ignore-unknown"
-    }
+    },
+    "stableVersion": "0.2.1"
 }
