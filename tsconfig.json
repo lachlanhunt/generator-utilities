@@ -5,7 +5,7 @@
         /* Base Options: */
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "target": "ES2024",
+        "target": "ESNext",
         "allowJs": true,
         "resolveJsonModule": true,
         "moduleDetection": "force",

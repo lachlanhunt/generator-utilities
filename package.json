@@ -4,6 +4,7 @@
     "version": "0.2.1",
     "description": "A utility library for generating and processing sequences based on ES6 generators.",
     "main": "index",
+    "type": "module",
     "scripts": {
         "postinstall": "husky install",
         "prepack": "pinst --disable",
@@ -36,9 +37,9 @@
         "@babel/core": "^7.26.0",
         "@babel/preset-env": "^7.26.0",
         "@babel/preset-typescript": "^7.26.0",
-        "@eslint/js": "^9.16.0",
+        "@eslint/js": "^9.17.0",
         "@types/node": "^22.10.2",
-        "@typescript-eslint/parser": "^8.18.0",
+        "@typescript-eslint/parser": "^8.18.1",
         "@vitest/runner": "^2.1.8",
         "@vitest/snapshot": "^2.1.8",
         "eslint": "^9.17.0",
@@ -53,7 +54,7 @@
         "prettier": "3.4.2",
         "ts-node": "^10.9.2",
         "typescript": "^5.7.2",
-        "typescript-eslint": "^8.17.0",
+        "typescript-eslint": "^8.18.1",
         "vitest": "^2.1.8"
     },
     "lint-staged": {
