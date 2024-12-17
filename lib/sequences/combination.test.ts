@@ -2,37 +2,37 @@ const { combination, range } = require("./");
 
 describe("Combination generator", () => {
     it("should generate unique combinations", () => {
-        let source = [0, 1, 2, 3, 4, 5];
-        let size = 3;
-        let combinations = Array.from(combination(source, size), (arr) => arr.join(""));
-        let set = new Set(combinations);
+        const source = [0, 1, 2, 3, 4, 5];
+        const size = 3;
+        const combinations = Array.from(combination(source, size), (arr) => arr.join(""));
+        const set = new Set(combinations);
 
         expect(set.size).toEqual(combinations.length);
         expect(combinations.length).toBe(20);
     });
 
     it("should generate combinations of 3 values", () => {
-        let source = [0, 1, 2, 3, 4, 5];
-        let size = 3;
-        let combinations = combination(source, size);
+        const source = [0, 1, 2, 3, 4, 5];
+        const size = 3;
+        const combinations = combination(source, size);
 
-        for (let c of combinations) {
+        for (const c of combinations) {
             expect(c.length).toBe(size);
         }
     });
 
     it("should generate combinations of 4 values", () => {
-        let source = [0, 1, 2, 3, 4, 5];
-        let size = 4;
-        let combinations = combination(source, size);
+        const source = [0, 1, 2, 3, 4, 5];
+        const size = 4;
+        const combinations = combination(source, size);
 
-        for (let c of combinations) {
+        for (const c of combinations) {
             expect(c.length).toBe(size);
         }
     });
 
     it("should work with Array-like objects", () => {
-        let source = {
+        const source = {
             length: 5,
             0: 10,
             1: 20,
@@ -40,30 +40,30 @@ describe("Combination generator", () => {
             3: 40,
             4: 50,
         };
-        let size = 3;
-        let combinations = combination(source, size);
+        const size = 3;
+        const combinations = combination(source, size);
 
-        for (let c of combinations) {
+        for (const c of combinations) {
             expect(c.length).toBe(size);
         }
     });
 
     it("should work with Iterable objects", () => {
-        let source = range(5);
-        let size = 3;
-        let combinations = combination(source, size);
+        const source = range(5);
+        const size = 3;
+        const combinations = combination(source, size);
 
-        for (let c of combinations) {
+        for (const c of combinations) {
             expect(c.length).toBe(size);
         }
     });
 
     it("should duplicate any value in a combination", () => {
-        let source = range(5);
-        let size = 3;
-        let combinations = combination(source, size);
+        const source = range(5);
+        const size = 3;
+        const combinations = combination(source, size);
 
-        for (let c of combinations) {
+        for (const c of combinations) {
             // Verify all values are unique within each combination
             expect(new Set(c).size).toBe(size);
         }

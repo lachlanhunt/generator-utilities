@@ -7,7 +7,7 @@ describe("Repeat sequence", () => {
         yield* [a, b, c];
     }
 
-    let generatorFn = sinon.stub();
+    const generatorFn = sinon.stub();
     generatorFn.callsFake(test);
 
     beforeEach(() => {
@@ -19,14 +19,14 @@ describe("Repeat sequence", () => {
     });
 
     it("should invoke the supplied generator function on each repetition", () => {
-        let result = [...take(repeat(generatorFn), 7)];
+        const result = [...take(repeat(generatorFn), 7)];
 
         expect(result).toEqual([1, 2, 3, 1, 2, 3, 1]);
         expect(generatorFn).toHaveBeenCalledThrice();
     });
 
     it("should invoke the supplied generator function with the given arguments on each repetition", () => {
-        let result = [...take(repeat(generatorFn, 3, 2, 1), 7)];
+        const result = [...take(repeat(generatorFn, 3, 2, 1), 7)];
 
         expect(result).toEqual([3, 2, 1, 3, 2, 1, 3]);
         expect(generatorFn).toHaveBeenCalledThrice();

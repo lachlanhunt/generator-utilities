@@ -2,8 +2,8 @@ import { permutation } from "./permutation";
 
 describe("k-permutation sequence", () => {
     it("should ", () => {
-        let iterator = permutation([1, 2, 3, 4], 3);
-        let result = [...iterator];
+        const iterator = permutation([1, 2, 3, 4], 3);
+        const result = [...iterator];
         expect(result).toEqual([
             [1, 2, 3],
             [1, 2, 4],
