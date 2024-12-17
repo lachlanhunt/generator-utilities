@@ -30,9 +30,6 @@
         "url": "https://github.com/lachlanhunt/generator-utilities/issues"
     },
     "homepage": "https://github.com/lachlanhunt/generator-utilities#readme",
-    "dependencies": {
-        "arrayslice": "^0.1.0"
-    },
     "devDependencies": {
         "@babel/core": "^7.26.0",
         "@babel/preset-env": "^7.26.0",

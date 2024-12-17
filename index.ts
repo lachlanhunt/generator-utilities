@@ -28,15 +28,4 @@ export {
     zip,
 } from "./lib/chainables/";
 
-export {
-    combination,
-    counter,
-    random,
-    range,
-    repeat,
-    permute,
-    permutation,
-    series,
-    shuffle,
-    symbols,
-} from "./lib/sequences/";
+export { combination, counter, random, range, repeat, permute, series, shuffle, symbols } from "./lib/sequences/";

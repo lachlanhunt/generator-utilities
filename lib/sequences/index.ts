@@ -4,7 +4,6 @@ export { random } from "./random";
 export { range } from "./range";
 export { repeat } from "./repeat";
 export { permute } from "./permute";
-export { permutation } from "./permutation";
 export { series } from "./series";
 export { shuffle } from "./shuffle";
 export { symbols } from "./symbols";

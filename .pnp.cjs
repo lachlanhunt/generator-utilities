@@ -35,7 +35,6 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/parser", "virtual:6f189f9c41ecc3ddaac57793b4f23b87195ebc0618da662bc4d73d5eab5401d441dca2803719348fd8f425f76637f194e19987de2bc92e643dc371413b16d827#npm:8.18.1"],\
           ["@vitest/runner", "npm:2.1.8"],\
           ["@vitest/snapshot", "npm:2.1.8"],\
-          ["arrayslice", "npm:0.1.0"],\
           ["eslint", "virtual:6f189f9c41ecc3ddaac57793b4f23b87195ebc0618da662bc4d73d5eab5401d441dca2803719348fd8f425f76637f194e19987de2bc92e643dc371413b16d827#npm:9.17.0"],\
           ["eslint-config-prettier", "virtual:6f189f9c41ecc3ddaac57793b4f23b87195ebc0618da662bc4d73d5eab5401d441dca2803719348fd8f425f76637f194e19987de2bc92e643dc371413b16d827#npm:9.1.0"],\
           ["eslint-import-resolver-typescript", "virtual:6f189f9c41ecc3ddaac57793b4f23b87195ebc0618da662bc4d73d5eab5401d441dca2803719348fd8f425f76637f194e19987de2bc92e643dc371413b16d827#npm:3.7.0"],\
@@ -3374,15 +3373,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["arrayslice", [\
-      ["npm:0.1.0", {\
-        "packageLocation": "./.yarn/cache/arrayslice-npm-0.1.0-87b0a9b5a0-a62107cbf7.zip/node_modules/arrayslice/",\
-        "packageDependencies": [\
-          ["arrayslice", "npm:0.1.0"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["assertion-error", [\
       ["npm:2.0.1", {\
         "packageLocation": "./.yarn/cache/assertion-error-npm-2.0.1-8169d136f2-a0789dd882.zip/node_modules/assertion-error/",\
@@ -4755,7 +4745,6 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/parser", "virtual:6f189f9c41ecc3ddaac57793b4f23b87195ebc0618da662bc4d73d5eab5401d441dca2803719348fd8f425f76637f194e19987de2bc92e643dc371413b16d827#npm:8.18.1"],\
           ["@vitest/runner", "npm:2.1.8"],\
           ["@vitest/snapshot", "npm:2.1.8"],\
-          ["arrayslice", "npm:0.1.0"],\
           ["eslint", "virtual:6f189f9c41ecc3ddaac57793b4f23b87195ebc0618da662bc4d73d5eab5401d441dca2803719348fd8f425f76637f194e19987de2bc92e643dc371413b16d827#npm:9.17.0"],\
           ["eslint-config-prettier", "virtual:6f189f9c41ecc3ddaac57793b4f23b87195ebc0618da662bc4d73d5eab5401d441dca2803719348fd8f425f76637f194e19987de2bc92e643dc371413b16d827#npm:9.1.0"],\
           ["eslint-import-resolver-typescript", "virtual:6f189f9c41ecc3ddaac57793b4f23b87195ebc0618da662bc4d73d5eab5401d441dca2803719348fd8f425f76637f194e19987de2bc92e643dc371413b16d827#npm:3.7.0"],\
