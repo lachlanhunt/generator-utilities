@@ -10,7 +10,7 @@ import { flatten } from "./flatten";
  * @param values One or more arrays or finitely iterable objects containing the set of values
  *         to be excluded by the generator.
  */
-export function* difference<T>(it: AnyIterable<T, void, void>, ...values: (AnyIterable<T, void, void> | T)[]) {
+export function* difference<T>(it: AnyIterable<T>, ...values: (AnyIterable<T> | T)[]) {
     const source = iterate(it);
     const exclusions = new Set([...flatten(values, 1)]);
 

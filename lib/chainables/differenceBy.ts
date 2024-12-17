@@ -13,8 +13,8 @@ import { identity } from "../utils";
  * @param mapFn
  */
 export function* differenceBy<T, U>(
-    it: AnyIterable<T, void, void>,
-    values: AnyIterable<U, void, void>,
+    it: AnyIterable<T>,
+    values: AnyIterable<U>,
     mapFn: (value: T | U) => unknown = identity,
 ) {
     const source = iterate(it);

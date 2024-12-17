@@ -9,7 +9,7 @@ import { take } from "./take";
  * @param it Any iterable object
  * @param n An integer indicating the maximum size of the Arrays to be yielded.
  */
-export function* chunk<T>(it: AnyIterable<T, void, void>, n = 1) {
+export function* chunk<T>(it: AnyIterable<T>, n = 1) {
     const source = iterate(it);
     try {
         while (true) {

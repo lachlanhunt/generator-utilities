@@ -16,9 +16,9 @@ function bigMod(value: bigint, n: bigint) {
  * @param it An iterable sequence of numbers to be used as the dividend
  * @param n  The divisor
  */
-export function modulo<T extends bigint>(it: AnyIterable<T, void, void>, n: T): Generator<T, never, void>;
-export function modulo<T extends number>(it: AnyIterable<T, void, void>, n: T): Generator<T, never, void>;
-export function* modulo<T extends number | bigint>(it: AnyIterable<T, void, void>, n: T) {
+export function modulo<T extends bigint>(it: AnyIterable<T>, n: T): Generator<T, never, void>;
+export function modulo<T extends number>(it: AnyIterable<T>, n: T): Generator<T, never, void>;
+export function* modulo<T extends number | bigint>(it: AnyIterable<T>, n: T) {
     if (typeof n === "bigint") {
         for (const value of iterate(it) as Iterable<bigint>) {
             yield bigMod(value, n);

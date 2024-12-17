@@ -2,8 +2,8 @@ const { link, fuzz, range } = require("./");
 
 describe("link generator", () => {
     it("should invoke the given generator function by passing the given iterator and yield the values from it", () => {
-        let iterator = link(range(1, 16), fuzz);
-        let result = [...iterator];
+        const iterator = link(range(1, 16), fuzz);
+        const result = [...iterator];
         expect(result).toEqual([
             1,
             2,

@@ -7,7 +7,7 @@ import { identity } from "../utils";
  * @param predicate
  * @returns {*}
  */
-export function* takeWhile<T>(it: AnyIterable<T, void, void>, predicate: Predicate<T> = identity) {
+export function* takeWhile<T>(it: AnyIterable<T>, predicate: Predicate<T> = identity) {
     for (const value of iterate(it)) {
         if (!predicate(value)) return;
         yield value;

@@ -7,7 +7,7 @@ import { isArrayLike } from "../utils";
  * @param it Any iterable or non-iterable object. If the object is iterable, it will be flattened recursively, up to the specified maximum depth.
  * @param maxDepth
  */
-export function* flatten<T>(it: T | AnyIterable<T, void, void>, maxDepth = Infinity): Generator<T, void, void> {
+export function* flatten<T>(it: T | AnyIterable<T>, maxDepth = Infinity): Generator<T, void, void> {
     maxDepth = +maxDepth || 0;
 
     if (isIterable(it) || isArrayLike(it)) {

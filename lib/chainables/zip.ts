@@ -5,7 +5,7 @@ import type { AnyIterable } from "../base-iterators/types";
  *
  * @param them
  */
-export function* zip<T>(...them: AnyIterable<T, void, void>[]) {
+export function* zip<T>(...them: AnyIterable<T>[]) {
     if (them.length) {
         const iterators = them.map(iterate);
         while (true) {

@@ -7,7 +7,7 @@ import { identity } from "../utils";
  * @param it Any iterable object
  * @param fn
  */
-export function* forEach<T>(it: AnyIterable<T, void, void>, fn: Predicate<T> = identity) {
+export function* forEach<T>(it: AnyIterable<T>, fn: Predicate<T> = identity) {
     for (const value of iterate(it)) {
         fn(value);
         yield value;

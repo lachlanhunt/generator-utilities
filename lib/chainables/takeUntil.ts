@@ -7,7 +7,7 @@ import { identity } from "../utils";
  * @param it Any iterable object
  * @param predicate
  */
-export function* takeUntil<T>(it: AnyIterable<T, void, void>, predicate: Predicate<T> = identity) {
+export function* takeUntil<T>(it: AnyIterable<T>, predicate: Predicate<T> = identity) {
     for (const value of iterate(it)) {
         yield value;
         if (predicate(value)) return;

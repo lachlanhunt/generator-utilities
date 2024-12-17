@@ -9,7 +9,7 @@ const UNDEFINED = Symbol("undefined");
  * @param it Any iterable object
  * @param comparator
  */
-export function* dedupe<T, TReturn>(it: AnyIterable<T, TReturn, void>, comparator: (a: T, b: T) => boolean = isEqual) {
+export function* dedupe<T>(it: AnyIterable<T>, comparator: (a: T, b: T) => boolean = isEqual) {
     const source = iterate(it);
     let prev: T | typeof UNDEFINED = UNDEFINED;
 

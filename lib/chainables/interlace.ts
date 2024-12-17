@@ -5,7 +5,7 @@ import type { AnyIterable } from "../base-iterators/types";
  *
  * @param them
  */
-export function* interlace<T>(...them: AnyIterable<T, void, void>[]) {
+export function* interlace<T>(...them: AnyIterable<T>[]) {
     const iterators = them.map(iterate);
 
     try {

@@ -9,8 +9,8 @@ import { isEqual } from "../utils";
  * @param comparator
  */
 export function* differenceWith<T, U>(
-    it: AnyIterable<T, void, void>,
-    values: AnyIterable<U, void, void>,
+    it: AnyIterable<T>,
+    values: AnyIterable<U>,
     comparator: (a: T | U, b: T | U) => boolean = isEqual,
 ) {
     const source = iterate(it);

@@ -7,7 +7,7 @@ import { identity } from "../utils";
  * @param it Any iterable object
  * @param predicate
  */
-export function* dropWhile<T>(it: AnyIterable<T, void, void>, predicate: Predicate<T> = identity) {
+export function* dropWhile<T>(it: AnyIterable<T>, predicate: Predicate<T> = identity) {
     const source = iterate(it);
     let cleanup = true;
     try {

@@ -11,7 +11,7 @@ import { zip } from "./zip";
  * @param n
  * @param takeFirst
  */
-export function* everyNth<T>(it: AnyIterable<T, void, void>, n: number, takeFirst = false) {
+export function* everyNth<T>(it: AnyIterable<T>, n: number, takeFirst = false) {
     if (isArrayLike(it)) {
         const start = takeFirst ? 0 : n - 1;
 
