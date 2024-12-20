@@ -1,5 +1,5 @@
 import type { AnyIterable } from "../base-iterators/types";
-import { take } from "../chainables/";
+import { take } from "../chainables";
 import { isArray } from "../utils";
 import { counter } from "./counter";
 

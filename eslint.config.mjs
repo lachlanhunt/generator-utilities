@@ -8,7 +8,7 @@ import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
 export default tseslint.config(
     { files: ["**/*.{js,mjs,cjs,ts}"] },
     {
-        ignores: [".husky/", ".vscode/", ".yarn/", "dist/", "node_modules/", "spec/", ".pnp.*"],
+        ignores: [".husky/", ".vscode/", ".yarn/", "lib/", "node_modules/", "spec/", ".pnp.*"],
     },
     {
         languageOptions: {

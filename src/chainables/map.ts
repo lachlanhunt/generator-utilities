@@ -1,4 +1,4 @@
-import { isIterable, iterate } from "../base-iterators/";
+import { isIterable, iterate } from "../base-iterators";
 import type { AnyIterable } from "../base-iterators/types";
 
 /**

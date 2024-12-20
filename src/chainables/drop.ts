@@ -1,4 +1,4 @@
-import { iterate, safeIterate } from "../base-iterators/";
+import { iterate, safeIterate } from "../base-iterators";
 import type { AnyIterable } from "../base-iterators/types";
 import { take } from "./take";
 

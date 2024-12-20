@@ -1,4 +1,4 @@
-import { iterate } from "../base-iterators/";
+import { iterate } from "../base-iterators";
 import type { AnyIterable, Predicate } from "../base-iterators/types";
 import { identity } from "../utils";
 

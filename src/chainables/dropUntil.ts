@@ -1,4 +1,4 @@
-import { iterate, safeIterate } from "../base-iterators/";
+import { iterate, safeIterate } from "../base-iterators";
 import type { AnyIterable, Predicate } from "../base-iterators/types";
 import { identity } from "../utils";
 
@@ -7,13 +7,13 @@ import { identity } from "../utils";
  * @param it Any iterable object
  * @param predicate
  */
-export function* dropWhile<T>(it: AnyIterable<T>, predicate: Predicate<T> = identity) {
+export function* dropUntil<T>(it: AnyIterable<T>, predicate: Predicate<T> = identity) {
     const source = iterate(it);
     let cleanup = true;
     try {
         for (const value of safeIterate(source)) {
             // Safely iterate to prevent for..of from finishing the iterator
-            if (!predicate(value)) {
+            if (predicate(value)) {
                 yield value;
                 break;
             }

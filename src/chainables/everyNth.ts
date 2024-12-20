@@ -1,4 +1,4 @@
-import { iterate } from "../base-iterators/";
+import { iterate } from "../base-iterators";
 import type { AnyIterable } from "../base-iterators/types";
 import { counter } from "../sequences";
 import { isArrayLike } from "../utils";

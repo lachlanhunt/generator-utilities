@@ -1,5 +1,5 @@
 import type { Predicate } from "../base-iterators/types";
-import { takeWhile } from "../chainables/";
+import { takeWhile } from "../chainables";
 import { counter } from "./counter";
 
 /**
