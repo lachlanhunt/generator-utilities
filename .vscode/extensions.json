@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "arcanis.vscode-zipfs",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "orta.vscode-twoslash-queries",
+    "vitest.explorer",
+    "yoavbls.pretty-ts-errors"
+  ]
+}

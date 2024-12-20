@@ -1,16 +1,37 @@
 {
     "name": "generator-utilities",
-    "version": "0.2.1",
+    "packageManager": "yarn@4.5.3",
+    "version": "1.0.0-alpha.1",
     "description": "A utility library for generating and processing sequences based on ES6 generators.",
-    "main": "index",
+    "exports": {
+        ".": "./lib/index.js",
+        "./chainables": "./lib/chainables/index.js",
+        "./chainables/*": "./lib/chainables/*",
+        "./sequences": "./lib/sequences/index.js",
+        "./sequences/*": "./lib/sequences/*",
+        "./base-itera    tors": "./lib/base-iterators/index.js",
+        "./base-iterators/*": "./lib/base-iterators/*",
+        "./examples": "./lib/examples/index.js",
+        "./examples/*": "./lib/examples/*"
+    },
+    "types": "./lib/index.d.ts",
+    "type": "module",
+    "files": [
+        "lib/**/*"
+    ],
     "scripts": {
-        "test": "jasmine",
-        "docs": "jsdoc -c jsdoc.conf.json"
+        "postinstall": "husky install",
+        "prepack": "pinst --disable",
+        "postpack": "pinst --enable",
+        "test": "vitest",
+        "lint": "eslint .",
+        "typecheck": "tsc --noEmit",
+        "build": "tsc --project tsconfig.build.json",
+        "clean": "rm -rf lib",
+        "docs": "jsdoc -c jsdoc.conf.json",
+        "sdks": "yarn dlx @yarnpkg/sdks vscode"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/lachlanhunt/generator-utilities.git"
-    },
+    "repository": "github:lachlanhunt/generator-utilities",
     "keywords": [
         "generator",
         "ES6"
@@ -21,15 +42,32 @@
         "url": "https://github.com/lachlanhunt/generator-utilities/issues"
     },
     "homepage": "https://github.com/lachlanhunt/generator-utilities#readme",
-    "dependencies": {
-        "@std/esm": "^0.5.1",
-        "arrayslice": "^0.1.0"
-    },
     "devDependencies": {
-        "eslint": "^4.5.0",
-        "jasmine": "^2.6.0",
-        "jasmine-sinon": "^0.4.0",
-        "jsdoc": "^3.5.4",
-        "sinon": "^2.2.0"
-    }
+        "@babel/core": "^7.26.0",
+        "@babel/preset-env": "^7.26.0",
+        "@babel/preset-typescript": "^7.26.0",
+        "@eslint/js": "^9.17.0",
+        "@types/node": "^22.10.2",
+        "@typescript-eslint/parser": "^8.18.1",
+        "@vitest/runner": "^2.1.8",
+        "@vitest/snapshot": "^2.1.8",
+        "eslint": "^9.17.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-import-resolver-typescript": "^3.7.0",
+        "eslint-plugin-import": "^2.31.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "globals": "^15.13.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^15.2.11",
+        "pinst": "^3.0.0",
+        "prettier": "3.4.2",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.7.2",
+        "typescript-eslint": "^8.18.1",
+        "vitest": "^2.1.8"
+    },
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown"
+    },
+    "stableVersion": "0.2.1"
 }
