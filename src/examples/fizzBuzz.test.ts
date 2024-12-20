@@ -1,9 +1,10 @@
+import { zip } from "../chainables";
 import { fizzBuzz } from "./fizzBuzz";
 
 describe("FizzBuzz sequence", () => {
     it("should generate the FizzBuzz sequence", () => {
-        let iterator = fizzBuzz();
-        let expected = [
+        const iterator = fizzBuzz();
+        const expected = [
             1,
             2,
             "Fizz", // 3
@@ -21,8 +22,8 @@ describe("FizzBuzz sequence", () => {
             "FizzBuzz", // 15
         ];
 
-        for (let i = 0; i < expected.length; i++) {
-            expect(iterator.next().value).toBe(expected[i]);
+        for (const [result, value] of zip(iterator, expected)) {
+            expect(result).toBe(value);
         }
     });
 });
