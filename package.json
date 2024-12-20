@@ -9,7 +9,7 @@
         "./chainables/*": "./lib/chainables/*",
         "./sequences": "./lib/sequences/index.js",
         "./sequences/*": "./lib/sequences/*",
-        "./base-iterators": "./lib/base-iterators/index.js",
+        "./base-itera    tors": "./lib/base-iterators/index.js",
         "./base-iterators/*": "./lib/base-iterators/*",
         "./examples": "./lib/examples/index.js",
         "./examples/*": "./lib/examples/*"
@@ -31,10 +31,7 @@
         "docs": "jsdoc -c jsdoc.conf.json",
         "sdks": "yarn dlx @yarnpkg/sdks vscode"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/lachlanhunt/generator-utilities.git"
-    },
+    "repository": "github:lachlanhunt/generator-utilities",
     "keywords": [
         "generator",
         "ES6"
